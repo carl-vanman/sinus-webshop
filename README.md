@@ -1,5 +1,31 @@
 # SINUS Webshop
 
+# Planering Agile
+* 23/2 - Planering upplägg av Agiltarbetssätt
+
+Sprint 1,
+påbörjad Stories i Trello
+
+
+
+* Antal dagar till inlämning = 7dagar (+2 helgdagar) 
+
+* Scrum master
+    Calle
+
+* Sprintar
+    Sprint 1, 24-26/2
+    Genomgång Sprint 1 och planering sprint 2. 1/3
+    Sprint 2, 2-4/2
+
+* Stand up
+    10.00 sharpisch varje dag
+
+
+
+
+
+
 ## Arbetssätt
 Samla era erfarenheter från Kanban, Scrum och diskussionerna av Modern Agile och kom överens i 
 gruppen om vilka delar och hur ni ska inkorporera detta i ert arbete. 
