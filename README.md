@@ -4,25 +4,22 @@
 * 23/2 - Planering upplägg av Agiltarbetssätt
 
 Sprint 1,
-påbörjad Stories i Trello
+  - påbörjad Stories i Trello
 
 
 
 * Antal dagar till inlämning = 7dagar (+2 helgdagar) 
 
 * Scrum master
-    Calle
+  - Calle
 
 * Sprintar
-    Sprint 1, 24-26/2
-    Genomgång Sprint 1 och planering sprint 2. 1/3
-    Sprint 2, 2-4/2
+  - Sprint 1, 24-26/2
+  - Genomgång Sprint 1 och planering sprint 2. 1/3
+  - Sprint 2, 2-4/2
 
 * Stand up
-    10.00 sharpisch varje dag
-
-
-
+  - 10.00 sharpisch varje dag
 
 
 
