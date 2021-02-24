@@ -1,12 +1,20 @@
 # SINUS Webshop
 
 # Planering Agile
+
+* 24/2
+  - forts. med stories till backlog (G-del) väntar med VG-delen.
+
+Sprint 1, utifrån backlogen har vi valt dessa stories i sprint 1.
+  - Backend server
+  - Produkt v
+
+
+
 * 23/2 - Planering upplägg av Agiltarbetssätt
 
 Sprint 1,
-  - påbörjad Stories i Trello
-
-
+  - påbörjad Stories i till backlog
 
 * Antal dagar till inlämning = 7dagar (+2 helgdagar) 
 
