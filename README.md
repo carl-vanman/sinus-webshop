@@ -4,15 +4,21 @@
 
 * 25/2
   - Stand upp möte, gick igenom gårdagen och deligera individuella uppgifter och en gemensam att börja med för sprint 1.
+  - sprint 1,
+  - Gemensamma: backend Server, Produkt view
+  - Christos: enstaka Produkt Modal
+  - Jessica: Cart Modal
+  - Carl: Utcheckning view
+  - Nav comp. ej deligerad ännu
+
   - Produkt view Storyn kodade vi under förmiddagen tillsammans för att se och förstå hämtning av data.
   - 
 
 * 24/2
   - forts. med stories till backlog (G-del) väntar med VG-delen.
 
-påbörjade plander Sprint 1, utifrån backlogen har vi valt dessa stories i sprint 1.
-  - Backend server
-
+påbörjade planer Sprint 1, utifrån backlogen.
+  - Backend server, fast ställd 
 
 
 * 23/2 - Planering upplägg av Agiltarbetssätt
