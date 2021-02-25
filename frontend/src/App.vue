@@ -3,10 +3,20 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <Cart />
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Cart from "@/components/Cart.vue"
+export default {
+  components: {
+    Cart
+  }
+}
+</script>
 
 <style lang="scss">
 :root {
