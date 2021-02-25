@@ -2,14 +2,14 @@
   <div class="productBoard">
     <div v-for="product in products" :key="product._id">
       <Product :product="product" />
-      <button class="lägg i cart"> img<!-- <img src="#" alt="..."> --></button>
+      <button @click="addToCart(product._id)" class="lägg i cart"> img<!-- <img src="#" alt="..."> --></button>
     </div>
   </div>
 </template>
 
 <script>
 import Product from '../components/Product.vue'
-import {PRODUCTS_URL, get} from '@/api/api.js'
+import {PRODUCTS_URL} from '@/api/api.js'
 
 export default {
   components: { 
@@ -17,12 +17,21 @@ export default {
     },
     data() {
       return {
-        products: []
       }
     },
     async created() {
-      const response = await get(PRODUCTS_URL)
-      this.products = response.data;
+      await this.$store.dispatch('getProducts', PRODUCTS_URL)
+    },
+    computed: {
+      products(){
+        return this.$store.getters.getProductList
+      },
+    },
+    methods: {
+      addToCart(id) {
+        const url = `${PRODUCTS_URL}/${id}`
+        this.$store.dispatch('getProduct', url)
+      }
     }
 
 }
