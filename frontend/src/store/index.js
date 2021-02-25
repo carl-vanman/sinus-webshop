@@ -15,7 +15,7 @@ export default new Vuex.Store({
     },
     getCartList(state) {
       return state.cart
-    }
+    },
   },
   mutations: {
     PRODUCTS_LIST(state, products) {
@@ -25,7 +25,7 @@ export default new Vuex.Store({
     ADD_PRODUCT(state, productObj) {
       state.cart.push(productObj)
       console.log(state.cart)
-    }
+    },
   },
   actions: {
     async getProducts({ commit }, url) {
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       const response = await get(url)
       const product = response.data;
       commit('ADD_PRODUCT', product)
-    }
+    },
   },
   modules: {
   },
