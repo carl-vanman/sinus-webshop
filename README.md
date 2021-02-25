@@ -2,12 +2,16 @@
 
 # Planering Agile
 
+* 25/2
+  - Stand upp möte, gick igenom gårdagen och deligera individuella uppgifter och en gemensam att börja med för sprint 1.
+  - Produkt view Storyn kodade vi under förmiddagen tillsammans för att se och förstå hämtning av data.
+  - 
+
 * 24/2
   - forts. med stories till backlog (G-del) väntar med VG-delen.
 
-Sprint 1, utifrån backlogen har vi valt dessa stories i sprint 1.
+påbörjade plander Sprint 1, utifrån backlogen har vi valt dessa stories i sprint 1.
   - Backend server
-  - Produkt v
 
 
 
