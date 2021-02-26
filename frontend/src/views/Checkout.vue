@@ -1,13 +1,32 @@
 <template>
   <div>
-    Checkout
-    <h1>utcheckning var d här</h1>
+    <div class="cart">
+      <h2>Your Cart</h2>
+      <h4>Items</h4>
+      Cart ProductList components
+    </div>
+    <div>
+      <h4>Delivery</h4>
+      <h4>Payment Details</h4>
+      <CheckoutForm />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import CheckoutForm from '../components/CheckoutForm.vue';
+export default {
+  components: { 
+    CheckoutForm 
+    },
+};
 </script>
 
-<style>
+<style scoped lang="scss">
+  .wrapper {
+    display: flex;
+  }
+  .cart{
+    background-color: rosybrown;
+  }
 </style>
