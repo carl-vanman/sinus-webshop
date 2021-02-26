@@ -1,41 +1,24 @@
 <template>
   <div class="cart">
-    <button @click="showCart = !showCart">Cart</button>
-    <p v-if="getCartItems > 0">{{ getCartItems }}</p>
-    <div class="cart-modal" v-if="showCart">
-      <div
-        class="product"
-        v-for="(product, index) in getCart"
-        :key="product._id"
-        @click="removeItem(index)"
-      >
-        <CartItem :product="product" />
-      </div>
-      <p v-if="getCartItems > 0">Total: {{ getCartPrice }}kr</p>
-      <button v-if="getCart.length > 0" @click="goToCheckout">
-        Take my money!
-      </button>
-      <p v-else>Varukorgen är tom :(</p>
-    </div>
+    <img src="../assets/cart.svg" alt="cart" @click="showCart = !showCart">
+    <p v-if="getCartItems > 0" class="counter">{{ getCartItems }}</p>
+    <CartList  v-if="showCart" />
+    
   </div>
 </template>
 
 <script>
-import CartItem from "../components/CartItem.vue";
+import CartList from "../components/CartList.vue";
 export default {
   components: {
-    CartItem,
+    CartList,
   },
   computed: {
-    getCart() {
-      return this.$store.getters.getCartList;
-    },
+    
     getCartItems() {
       return this.$store.getters.getCartItems;
     },
-    getCartPrice() {
-      return this.$store.getters.getCartPrice;
-    },
+    
   },
   data() {
     return {
@@ -43,24 +26,17 @@ export default {
     };
   },
 
-  methods: {
-    removeItem(i) {
-      this.$store.dispatch("removeProduct", i);
-    },
-
-    goToCheckout() {
-      this.showCart = false;
-      this.$router.push("/checkout");
-    },
-  },
 };
 </script>
 
 <style scoped>
-.cart-modal {
-  position: fixed;
+
+
+.counter {
   background-color: #fff;
-  width: 200px;
+  position: relative;
+  top: -70px;
+  width: 20px;
 }
 </style>>
 
