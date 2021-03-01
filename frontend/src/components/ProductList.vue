@@ -49,7 +49,6 @@ export default {
 
 <style scoped lang="scss">
   .productBoard {
-    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;

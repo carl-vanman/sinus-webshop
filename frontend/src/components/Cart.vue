@@ -1,19 +1,19 @@
 <template>
   <div class="cart">
-    <img src="../assets/cart.svg" alt="cart" @click="showCart = !showCart">
+    <img src="../assets/cart.svg" alt="cart" @click="showCart = !showCart" />
+    <div class="counter" v-if="getCartItems > 0">
+      <p>
+        {{ getCartItems }}
+      </p>
+    </div>
+    <div class="cart-modal" v-if="showCart">
+      <CartList />
 
-    <p v-if="getCartItems > 0" class="counter">
-      {{ getCartItems }}
-    </p>
-<div class="cart-modal" v-if="showCart">
-    <CartList />
-
-    <button v-if="getCartItems > 0" @click="goToCheckout">
+      <button v-if="getCartItems > 0" @click="goToCheckout">
         Take my money!
       </button>
       <p v-else>Varukorgen är tom :(</p>
-      </div>
-    
+    </div>
   </div>
 </template>
 
@@ -24,11 +24,9 @@ export default {
     CartList,
   },
   computed: {
-    
     getCartItems() {
       return this.$store.getters.getCartItems;
     },
-    
   },
   data() {
     return {
@@ -41,20 +39,28 @@ export default {
       this.showCart = false;
       this.$router.push("/checkout");
     },
-  }
-
+  },
 };
 </script>
 
 <style scoped>
-
-
-/* .counter {
+.cart {
+  position: relative;
+}
+.counter {
   background-color: #fff;
   position: absolute;
-  top: -70px;
+  top: -20%;
+  left: 70%;
   width: 20px;
-} */
+  border-radius: 50%;
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .cart-modal {
   position: fixed;
