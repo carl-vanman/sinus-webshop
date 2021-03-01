@@ -5,9 +5,8 @@
         class="product"
         v-for="(product, index) in getCart"
         :key="product._id"
-        @click="removeItem(index)"
       >
-        <CartItem :product="product" />
+        <CartItem :product="product" :index="index"/>
       </div>
       <p v-if="getCartPrice > 0">Total: {{ getCartPrice }}kr</p>
       
@@ -39,5 +38,7 @@ export default {
 </script>
 
 <style scoped>
-
+/* .cart-list {
+  width: 500px;
+} */
 </style>
