@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { get } from '@/api/api.js'
+import { post } from '@/api/api.js'
+import { ORDER_URL } from '@/api/api.js'
+
 
 Vue.use(Vuex)
 
@@ -24,6 +27,9 @@ export default new Vuex.Store({
     getCartPrice(state) {
       return state.cartPrice
     },
+    getCartItemsId(state) {
+      return state.cart.map(item => item._id)
+    }
   },
   mutations: {
     PRODUCTS_LIST(state, products) {
@@ -105,6 +111,16 @@ export default new Vuex.Store({
         context.commit('decreaseAmount', index)
       }
     },
+
+    async registerOrder(context, obj) {
+
+      obj.items = await context.getters.getCartItemsId;
+
+      console.log(obj)
+      const response = await post(ORDER_URL, obj)
+      console.log(response)
+      /* emty cart? */
+    }
   },
   modules: {
   },
