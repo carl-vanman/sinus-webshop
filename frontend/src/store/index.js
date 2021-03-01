@@ -83,12 +83,11 @@ export default new Vuex.Store({
       for (let i = 0; i < context.state.cart.length; i++) {
         if (context.state.cart[i]._id === product._id) {
           exists = true
-          console.log('finns')
           context.commit('increaseAmount', i)
           break;
-
         }
       }
+
       if (exists === false) {
         product.amount = 1
         context.commit('ADD_PRODUCT', product)

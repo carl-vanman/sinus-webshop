@@ -34,7 +34,7 @@ export default {
 
 .counter {
   background-color: #fff;
-  position: relative;
+  position: absolute;
   top: -70px;
   width: 20px;
 }
