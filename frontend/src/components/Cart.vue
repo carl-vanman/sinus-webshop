@@ -12,7 +12,7 @@
       <button v-if="getCartItems > 0" @click="goToCheckout">
         Take my money!
       </button>
-      <p v-else>Varukorgen är tom :(</p>
+      <p v-else>Your cart is empty</p>
     </div>
   </div>
 </template>
@@ -63,9 +63,23 @@ export default {
 }
 
 .cart-modal {
-  position: fixed;
+  position: absolute;
   background-color: #fff;
-  width: 200px;
+  width: 350px;
+  left: -670%;
+  top: 60px;
+}
+
+.cart-modal::before {
+  content: "";
+  width: 20px;
+  height: 10px;
+  background-color: white;
+
+  position: absolute;
+  top: -10px;
+  right: 23px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 </style>>
 

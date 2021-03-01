@@ -35,8 +35,7 @@ export default {
     },
     methods: {
       addToCart(id) {
-        const url = `${PRODUCTS_URL}/${id}`
-        this.$store.dispatch('getProduct', url)
+        this.$store.dispatch('getProduct', id)
       },
       setActiveProduct(index) {
         this.activeProduct = this.getProducts[index]

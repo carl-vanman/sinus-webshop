@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import { get } from '@/api/api.js'
 import { post } from '@/api/api.js'
 import { ORDER_URL } from '@/api/api.js'
+import { PRODUCTS_URL } from '@/api/api.js'
 
 
 Vue.use(Vuex)
@@ -83,7 +84,8 @@ export default new Vuex.Store({
       commit('PRODUCTS_LIST', products)
     },
 
-    async getProduct(context, url) {
+    async getProduct(context, id) {
+      const url = `${PRODUCTS_URL}/${id}`
       const response = await get(url)
       const product = response.data;
 
