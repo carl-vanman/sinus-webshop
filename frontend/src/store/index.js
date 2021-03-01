@@ -77,6 +77,14 @@ export default new Vuex.Store({
 
     removeFromPrice(state, index) {
       state.cartPrice -= state.cart[index].price
+    },
+
+    removeAllCartItem(state) {
+      state.cart = [];
+    },
+
+    resetCartItems(state) {
+      state.cartItems = 0;
     }
   },
 
@@ -134,7 +142,8 @@ export default new Vuex.Store({
 
       const response = await post(ORDER_URL, obj)
       console.log(response)
-      /* emty cart? */
+      context.commit('removeAllCartItem')
+      context.commit('resetCartItems')
     }
   },
   modules: {

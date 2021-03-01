@@ -45,12 +45,14 @@ export default {
         }
     },
     methods: {
-        onSubmit() {
+        async onSubmit() {
             const user = {}
             user.customer = this.customer
             user.payment = this.payment
         
-            this.$store.dispatch('registerOrder', user)
+            await this.$store.dispatch('registerOrder', user);
+
+            this.$router.push("/OrderConfirmed");
         }
     }
 }
