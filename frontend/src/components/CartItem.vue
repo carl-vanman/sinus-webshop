@@ -101,6 +101,7 @@ img {
   height: 70px;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
 
   h2,
   p {

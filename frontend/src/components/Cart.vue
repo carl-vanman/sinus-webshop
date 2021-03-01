@@ -1,17 +1,21 @@
 <template>
   <div class="cart">
     <img src="../assets/cart.svg" alt="cart" @click="showCart = !showCart" />
+
     <div class="counter" v-if="getCartItems > 0">
       <p>
         {{ getCartItems }}
       </p>
     </div>
+
     <div class="cart-modal" v-if="showCart">
       <CartList />
 
       <button v-if="getCartItems > 0" @click="goToCheckout">
+        <img src="@/assets/icon-bag-white.svg" alt="bag icon" />
         Take my money!
       </button>
+
       <p v-else>Your cart is empty</p>
     </div>
   </div>
@@ -43,7 +47,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .cart {
   position: relative;
 }
@@ -80,6 +84,28 @@ export default {
   top: -10px;
   right: 23px;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  margin: 20px auto 30px auto;
+  border-radius: 50px;
+  width: 210px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+button:hover {
+  cursor: pointer;
 }
 </style>>
 

@@ -6,10 +6,14 @@
         v-for="(product, index) in getCart"
         :key="product._id"
       >
-        <CartItem :product="product" :index="index"/>
+        <CartItem :product="product" :index="index" />
       </div>
-      <p v-if="getCartPrice > 0">Total: {{ getCartPrice }}kr</p>
-      
+      <div class="total" v-if="getCartPrice > 0">
+        <p>Total:</p>
+        <p class="bold">
+          <b>{{ getCartPrice }}kr</b>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +41,18 @@ export default {
 };
 </script>
 
-<style scoped>
-/* .cart-list {
-  width: 500px;
-} */
+<style lang="scss" scoped>
+.total {
+  width: 90%;
+  margin: 5px auto auto auto;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #eeeeee;
+  font-size: 18px;
+  text-transform: uppercase;
+
+  p {
+    margin-top: 5px;
+  }
+}
 </style>
