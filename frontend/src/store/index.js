@@ -28,15 +28,18 @@ export default new Vuex.Store({
     getCartPrice(state) {
       return state.cartPrice
     },
-    getCartItemsId(state) {
+    /* getCartItemsId(state) {
       return state.cart.map(item => {
-        if (item.amount > 1){
-          return item._id * item.amount
+        if (item.amount > 1) {
+          for (let i = item.amount; i > 0; i--) {
+            console.log('hej')
+            return item._id
+          }
         } else {
         return item._id
         }
       })
-    }
+    } */
   },
   mutations: {
     PRODUCTS_LIST(state, products) {
@@ -121,9 +124,14 @@ export default new Vuex.Store({
 
     async registerOrder(context, obj) {
 
-      obj.items = await context.getters.getCartItemsId;
+      obj.items = [];
+      
+      await context.getters.getCartList.forEach(item => {
+        for(let i = item.amount; i > 0; i--){
+          obj.items.push(item._id)
+        }
+      });
 
-      console.log(context.cart)
       const response = await post(ORDER_URL, obj)
       console.log(response)
       /* emty cart? */
