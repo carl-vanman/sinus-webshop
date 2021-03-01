@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <nav class="nav">
     <img src="@/assets/sinus-logo.svg" alt="" />
     <div class="right">
       <router-link to="/">Products</router-link>
@@ -7,7 +7,7 @@
       <LogIn class="margin"/>
       <Cart />
     </div>
-  </div>
+  </nav>
 </template> 
 
 <script>

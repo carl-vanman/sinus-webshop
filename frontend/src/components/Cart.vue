@@ -50,7 +50,12 @@ export default {
 <style lang="scss" scoped>
 .cart {
   position: relative;
+
+  img:hover {
+    cursor: pointer;
+  }
 }
+
 .counter {
   background-color: #fff;
   position: absolute;
@@ -70,8 +75,10 @@ export default {
   position: absolute;
   background-color: #fff;
   width: 350px;
+  z-index: 1;
   left: -670%;
   top: 60px;
+  box-shadow: 0px 0px 62px rgba(0, 0, 0, 0.18);
 }
 
 .cart-modal::before {
@@ -90,6 +97,7 @@ button {
   background-color: #000;
   color: #fff;
   margin: 20px auto 30px auto;
+  border: none;
   border-radius: 50px;
   width: 210px;
   height: 50px;
@@ -102,10 +110,12 @@ button {
   img {
     margin-right: 10px;
   }
+
 }
 
 button:hover {
   cursor: pointer;
 }
+
 </style>>
 

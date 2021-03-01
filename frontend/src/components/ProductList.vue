@@ -1,55 +1,84 @@
 <template>
   <div class="productBoard">
-    <div v-for="(product, index) in getProducts" :key="product._id">
+    <div
+      v-for="(product, index) in getProducts"
+      :key="product._id"
+      class="item"
+    >
       <Product @click.native="setActiveProduct(index)" :product="product" />
-      <button @click="addToCart(product._id)" class="lägg i cart"> img<!-- <img src="#" alt="..."> --></button>
+      <button @click="addToCart(product._id)" class="lägg i cart">
+        <img src="@/assets/icon-bag-black.svg" alt="" />
+      </button>
     </div>
     <div>
-      <ProductModal :activeProduct="activeProduct"/>
+      <ProductModal :activeProduct="activeProduct" />
     </div>
   </div>
 </template>
 
 <script>
-import Product from '../components/Product.vue'
-import {PRODUCTS_URL} from '@/api/api.js'
-import ProductModal from './ProductModal.vue'
+import Product from "../components/Product.vue";
+import { PRODUCTS_URL } from "@/api/api.js";
+import ProductModal from "./ProductModal.vue";
 
 export default {
-  components: { 
+  components: {
     Product,
-    ProductModal, 
+    ProductModal,
+  },
+  data() {
+    return {
+      activeProduct: {},
+    };
+  },
+  async created() {
+    await this.$store.dispatch("getProducts", PRODUCTS_URL);
+  },
+  computed: {
+    getProducts() {
+      return this.$store.getters.getProductList;
     },
-    data() {
-      return {
-        activeProduct: {},
-      }
+  },
+  methods: {
+    addToCart(id) {
+      this.$store.dispatch("getProduct", id);
     },
-    async created() {
-      await this.$store.dispatch('getProducts', PRODUCTS_URL)
+    setActiveProduct(index) {
+      this.activeProduct = this.getProducts[index];
+      console.log(this.activeProduct);
     },
-    computed: {
-      getProducts(){
-        return this.$store.getters.getProductList
-      },
-    },
-    methods: {
-      addToCart(id) {
-        this.$store.dispatch('getProduct', id)
-      },
-      setActiveProduct(index) {
-        this.activeProduct = this.getProducts[index]
-        console.log(this.activeProduct)
-      }
-    }
-
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
-  .productBoard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+.productBoard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+
+  .item {
+    position: relative;
+
+    button {
+      border: none;
+      border-radius: 50%;
+      background-color: #eeeeee;
+      position: absolute;
+      top: 20px;
+      left: 80%;
+      width: 44px;
+      height: 44px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: #cecbcb;
+    }
+
+    button:focus {
+      outline: none;
+    }
   }
+}
 </style>
