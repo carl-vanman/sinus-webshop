@@ -3,7 +3,7 @@
     <div class="cart">
       <h2>Your Cart</h2>
       <h4>Items</h4>
-      Cart ProductList components
+      <CartList />
     </div>
     <div>
       <h4>Delivery</h4>
@@ -14,10 +14,12 @@
 </template>
 
 <script>
+import CartList from '../components/CartList.vue';
 import CheckoutForm from '../components/CheckoutForm.vue';
 export default {
   components: { 
-    CheckoutForm 
+    CheckoutForm,
+    CartList 
     },
 };
 </script>
