@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="cart-modal">
+    <div class="cart-list">
       <div
         class="product"
         v-for="(product, index) in getCart"
@@ -10,10 +10,7 @@
         <CartItem :product="product" />
       </div>
       <p v-if="getCartPrice > 0">Total: {{ getCartPrice }}kr</p>
-      <button v-if="getCart.length > 0" @click="goToCheckout">
-        Take my money!
-      </button>
-      <p v-else>Varukorgen är tom :(</p>
+      
     </div>
   </div>
 </template>
@@ -34,10 +31,6 @@ export default {
   },
 
   methods: {
-    goToCheckout() {
-      this.showCart = false;
-      this.$router.push("/checkout");
-    },
     removeItem(i) {
       this.$store.dispatch("removeProduct", i);
     },
@@ -46,9 +39,5 @@ export default {
 </script>
 
 <style scoped>
-.cart-modal {
-  position: fixed;
-  background-color: #fff;
-  width: 200px;
-}
+
 </style>
