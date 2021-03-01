@@ -28,7 +28,13 @@ export default new Vuex.Store({
       return state.cartPrice
     },
     getCartItemsId(state) {
-      return state.cart.map(item => item._id)
+      return state.cart.map(item => {
+        if (item.amount > 1){
+          return item._id * item.amount
+        } else {
+        return item._id
+        }
+      })
     }
   },
   mutations: {
@@ -115,7 +121,7 @@ export default new Vuex.Store({
 
       obj.items = await context.getters.getCartItemsId;
 
-      console.log(obj)
+      console.log(context.cart)
       const response = await post(ORDER_URL, obj)
       console.log(response)
       /* emty cart? */
