@@ -2,20 +2,21 @@
   <article v-if="activeProduct.active">
     <div class="product-mask" @click="disableActive">
       <div class="product-container">
-        <div class="left-box">
+        <div class="primary-container">
           <img
             class="image"
             :src="require(`@/assets/${activeProduct.imgFile}`)"
-            alt="..."
+            alt="product-picture"
           />
         </div>
-        <div class="right-box">
+        <div class="secondary-container">
           <h2 class="title">{{ activeProduct.title }}</h2>
           <p class="short-desc">{{ activeProduct.shortDesc }}</p>
           <p class="long-desc">{{ activeProduct.longDesc }}</p>
-          <p class="price">{{ activeProduct.price }}</p>
+          <p class="price">{{ activeProduct.price }} SEK</p>
           <button @click="addToCart(activeProduct._id)">
-            <h2>Take my Money!</h2>
+            <img src="@/assets/icon-bag-white.svg" alt="" />
+            <h2>Take my money!</h2>
           </button>
         </div>
       </div>
@@ -39,7 +40,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .product-mask {
   z-index: 10;
   top: 0;
@@ -68,11 +69,12 @@ export default {
   background: white;
 }
 
-.left-box {
-  background: lightgrey;
+.primary-container {
+  background: #e5e5e5;
+  height: 508px;
 }
 
-.right-box {
+.secondary-container {
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -80,15 +82,54 @@ export default {
   text-align: start;
 }
 
-button {
-  align-self: center;
-  margin-top: auto;
-  border-radius: 50px;
-  background: #000;
-  color: #fff;
-  width: 202px;
-  height: 48px;
+.title {
   font-style: normal;
-  size: 18px;
+  font-size: 32px;
+  line-height: 44px;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.short-desc {
+  font-size: 22px;
+  line-height: 30px;
+  margin-top: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.long-desc {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.price {
+  font-size: 26px;
+  line-height: 35px;
+  font-weight: bold;
+  margin-bottom: 58px;
+}
+
+button {
+  background-color: #000;
+  border-radius: 50px;
+  font-weight: normal;
+  color: #fff;
+  width: 210px;
+  height: 50px;
+  border: none;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+  cursor: pointer;
+}
+
+.image {
+  width: 350px;
+  height: auto;
+  margin-top: 25%;
 }
 </style>
