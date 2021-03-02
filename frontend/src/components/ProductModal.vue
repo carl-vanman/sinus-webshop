@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <article v-if="activeProduct.active">
     <div class="product-mask" @click="disableActive">
       <div class="product-container">
@@ -19,6 +20,18 @@
           </button>
         </div>
       </div>
+=======
+  <article>
+    <div class="wrapper">
+      <!-- <img
+        class="active-image"
+        :src="require(`../assets/${activeProduct.imgFile}`)"
+        alt="..."
+      /> -->
+      <h3>{{ activeProduct.title }}</h3>
+      <p>{{ activeProduct.longDesc }}</p>
+      <p>{{ activeProduct.price }}</p>
+>>>>>>> a409366f8ddf9633e36f319d6ee6183f1b8c38f9
     </div>
   </article>
 </template>
