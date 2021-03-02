@@ -1,25 +1,21 @@
 <template>
-  <div>
-    <div class="cart">
-      <h2>Your Cart</h2>
-      <h4>Items</h4>
+  <div class="flexContainer">
+    <!-- <div class="cart">
       <CartList />
-    </div>
+    </div> -->
     <div>
-      <h4>Delivery</h4>
-      <h4>Payment Details</h4>
       <CheckoutForm />
     </div>
   </div>
 </template>
 
 <script>
-import CartList from '../components/CartList.vue';
+/* import CartList from '../components/CartList.vue'; */
 import CheckoutForm from '../components/CheckoutForm.vue';
 export default {
   components: { 
     CheckoutForm,
-    CartList 
+    /* CartList  */
     },
 };
 </script>
@@ -30,5 +26,9 @@ export default {
   }
   .cart{
     background-color: rosybrown;
+  }
+
+  .flexContainer {
+    display: flex;
   }
 </style>

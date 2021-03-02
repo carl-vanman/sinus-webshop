@@ -1,7 +1,15 @@
 <template>
     <div class="wrapper">
+        <h2>YOUR CART</h2>
         <form class="checkoutForm" @submit.prevent="onSubmit">
+            <section>
+                <h4>ITEMS</h4>
+                <div class="cartList">
+                    <CartList />
+                </div>
+            </section>
             <section class="delivery">
+                <h4>DELIVERY</h4>
                 <div class="col-2">    
                     <label for="name">Name</label>
                     <input class="col-2" v-model="customer.name" type="text" name="name" required>
@@ -21,25 +29,33 @@
             </section>
 
             <section class="payment">
-                <label for="cardowner">Card owner</label>
-                <input v-model="payment.cardOwner" type="text" name="owner" required>
-                
-                <label for="cardnumber">Card Number</label>
-                <input v-model="payment.cardNumber" type="number" name="cardnumber" required>
-                
-                <label for="cardvalid">Valid Until</label>
-                <input v-model="payment.cardValid" type="text" name="valid" placeholder="MM / YY" required>
-                
-                <label for="cardccv">CVV</label>
-                <input v-model="payment.cardCVV" type="number" name="cvv" required>
+                <h4>PAYMENT</h4>
+                <div class="col-2">
+                    <label for="cardowner">Card owner</label>
+                    <input v-model="payment.cardOwner" type="text" name="owner" required>
+                </div>
+                <div class="col-2">
+                    <label for="cardnumber">Card Number</label>
+                    <input v-model="payment.cardNumber" type="number" name="cardnumber" required>
+                </div>
+                <div>
+                    <label for="cardvalid">Valid Until</label>
+                    <input v-model="payment.cardValid" type="text" name="valid" placeholder="MM / YY" required>
+                </div>
+                <div>
+                    <label for="cardccv">CVV</label>
+                    <input v-model="payment.cardCVV" type="number" name="cvv" required>
+                </div>
             </section>
-            <input type="submit" value="Take my money!">
+            <input class="submitButton" type="submit" value="Take my money!">
         </form>
     </div>
 </template>
 
 <script>
+import CartList from './CartList.vue'
 export default {
+  components: { CartList },
     data() {
         return {
             customer: {
@@ -72,20 +88,19 @@ export default {
 
 <style scoped lang="scss">
     .wrapper {
-        background-color: royalblue;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
 
         .checkoutForm {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            background-color: saddlebrown;
-
-            .delivery {
-                grid-column: 1 / 2;
-
+            .delivery, .payment {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 8px 16px;
+                text-align: start;
 
                 div {
                     display: flex;
@@ -96,11 +111,35 @@ export default {
                     grid-column: span 2;
                 }
             }
-            
-            .payment {
-                grid-column: -1 / -2;
-            }
         }
-        
     }
+    input {
+        border: 1px solid rgba(0, 0, 0, 0.6);
+        border-radius: 2px;
+        height: 50px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .submitButton {
+        grid-column-start: 3;
+        width: 202px;
+        height: 48px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 100vw;
+        place-self: end;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .cartList {
+        height: 238px;
+        overflow: scroll;
+    }
+    
 </style>

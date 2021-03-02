@@ -15,11 +15,7 @@
           <p class="long-desc">{{ activeProduct.longDesc }}</p>
           <p class="price">{{ activeProduct.price }}</p>
           <button @click="addToCart(activeProduct._id)">
-<<<<<<< HEAD
-            <h2>Take my para!</h2>
-=======
             <h2>Take my Money!</h2>
->>>>>>> c77707491139c92987bd37a4dec941475a5eba47
           </button>
         </div>
       </div>
