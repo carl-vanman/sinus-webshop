@@ -2,6 +2,10 @@
 
 # Planering Agile
 
+* 1/3
+  - Genomgång Sprint 1 och planering sprint 2 flyttas till 2/3,
+  vardera fortsätter med sina delar. Hjälp varann under dagen med små problem som dykt upp.
+
 * 25/2
   - Stand upp möte, gick igenom gårdagen och deligera individuella uppgifter och en gemensam att börja med för sprint 1.
   - sprint 1, fastställd
