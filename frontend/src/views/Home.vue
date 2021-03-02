@@ -17,8 +17,8 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 </style>

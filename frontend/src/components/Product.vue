@@ -26,7 +26,7 @@ export default {
 <style scoped lang="scss">
 .product {
   width: 100%;
-  height: 520px;
+  height: 450px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -62,7 +62,7 @@ img {
 
 .price {
   position: absolute;
-  top: 450px;
+  top: 380px;
   left: 5%;
   background-color: #000000;
   border-radius: 50px;
@@ -79,12 +79,10 @@ img {
     font-size: 700;
   }
   .sek {
-  font-size: 14px;
-  margin-left: 5px;
-  margin-top: -5px;
-  font-size: 400;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: -5px;
+    font-size: 400;
+  }
 }
-}
-
-
 </style>

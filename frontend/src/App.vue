@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Nav />
-   
+    <div class="wrapper">
+      <div id="nav">
+        <Nav />
+    
+      </div>
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
@@ -35,6 +37,13 @@ background-color: #EEEEEE;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(900px, 1064px) 1fr;
+  
+  .wrapper {
+    grid-column: 2 / -2;
+  }
   
 }
 

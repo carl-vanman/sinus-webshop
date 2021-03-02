@@ -106,11 +106,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   img {
     margin-right: 10px;
   }
 
+}
+
+button:focus {
+    outline: none
 }
 
 button:hover {

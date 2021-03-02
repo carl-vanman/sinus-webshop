@@ -1,13 +1,42 @@
 <template>
   <div class="login">
     <div class="background">
-      <img src="@/assets/icon-user-black.svg" alt="login" />
+      <img
+        src="@/assets/icon-user-black.svg"
+        alt="login"
+        @click="showLogin = !showLogin"
+      />
+    </div>
+    <div class="login-modal" v-if="showLogin">
+      <form @submit.prevent="onSubmit()">
+        <label for="email">Email</label>
+        <input type="text" name="email" v-model="user.email"/>
+        <label for="password">Password</label>
+        <input type="text" name="password" v-model="user.password"/>
+        <input type="submit" value="Login" />
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showLogin: false,
+      user: {
+        email: null,
+        password: null,
+      }
+    };
+  },
+
+  methods: {
+    onSubmit() {
+      console.log(this.user)
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -18,12 +47,86 @@ export default {};
   width: 44px;
 }
 img {
-    height: 60%;
-    margin-left: 1px;
-    margin-top: 6px;
+  height: 60%;
+  margin-left: 1px;
+  margin-top: 6px;
 }
 
 .background:hover {
   cursor: pointer;
+}
+
+.login {
+  position: relative;
+}
+
+.login-modal {
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  z-index: 1;
+  left: -555%;
+  top: 60px;
+  box-shadow: 0px 0px 62px rgba(0, 0, 0, 0.18);
+}
+
+.login-modal::before {
+  content: "";
+  width: 20px;
+  height: 10px;
+  background-color: white;
+
+  position: absolute;
+  top: -10px;
+  right: 23px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px auto 10px auto;
+
+  label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 13px;
+  }
+
+  input[type="text"] {
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    height: 30px;
+  }
+
+  input[type="text"]:focus {
+    background-color: #eeeeee;
+  }
+
+  input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    margin: 10px auto 10px auto;
+    border: none;
+    border-radius: 50px;
+    width: 210px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
+  }
+
+  input[type="submit"]:focus {
+    outline: none;
+  }
 }
 </style>
