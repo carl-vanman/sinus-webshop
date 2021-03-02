@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="wrapper">
     <section class="top">
-      <img src="#" alt="" />
+      <!-- <img src="@/assets/skate-hero-1.jpg" alt=""> -->
       <h2>Join the family!</h2>
     </section>
-    <section>
+    <section class="flexContainer">
       <article>
         <header>
-          <h4>Welcome!</h4>
+          <h2>Welcome!</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
             nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
@@ -38,5 +38,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+
+.flexContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: start;
+  gap: 32px;
+}
 </style>
