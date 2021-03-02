@@ -2,6 +2,8 @@
 
 # Planering Agile
 
+
+
 * 1/3
   - Genomgång Sprint 1 och planering sprint 2 flyttas till 2/3,
   vardera fortsätter med sina delar. Hjälp varann under dagen med små problem som dykt upp.
