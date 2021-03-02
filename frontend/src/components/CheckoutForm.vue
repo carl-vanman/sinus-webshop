@@ -101,5 +101,6 @@ export default {
                 grid-column: -1 / -2;
             }
         }
+        
     }
 </style>
