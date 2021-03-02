@@ -11,7 +11,10 @@
       </button>
     </div>
     <div>
-      <ProductModal :activeProduct="activeProduct" />
+      <ProductModal
+        v-on:disableActive="disable"
+        :activeProduct="activeProduct"
+      />
     </div>
   </div>
 </template>
@@ -45,6 +48,11 @@ export default {
     },
     setActiveProduct(index) {
       this.activeProduct = this.getProducts[index];
+      this.activeProduct.active = true;
+      console.log(this.activeProduct);
+    },
+    disable() {
+      this.activeProduct = {};
       console.log(this.activeProduct);
     },
   },
