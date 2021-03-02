@@ -85,6 +85,10 @@ export default new Vuex.Store({
 
     resetCartItems(state) {
       state.cartItems = 0;
+    },
+
+    resetCartPrice(state) {
+      state.cartPrice = 0;
     }
   },
 
@@ -132,6 +136,8 @@ export default new Vuex.Store({
 
     async registerOrder(context, obj) {
 
+      /* ev. flytta till en getter? */
+
       obj.items = [];
       
       await context.getters.getCartList.forEach(item => {
@@ -144,6 +150,7 @@ export default new Vuex.Store({
       console.log(response)
       context.commit('removeAllCartItem')
       context.commit('resetCartItems')
+      context.commit('resetCartPrice')
     }
   },
   modules: {

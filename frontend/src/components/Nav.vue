@@ -25,7 +25,7 @@ export default {
 .nav {
   display: flex;
   justify-content: space-between;
-  width: 75%;
+  width: 100%;
   margin: 2% auto 2% auto;
 }
 
