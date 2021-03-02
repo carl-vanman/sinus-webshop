@@ -4,6 +4,8 @@ import { get } from '@/api/api.js'
 import { post } from '@/api/api.js'
 import { ORDER_URL } from '@/api/api.js'
 import { PRODUCTS_URL } from '@/api/api.js'
+import { REGISTER_USER_URL } from '@/api/api.js'
+import { LOGIN_USER_URL } from '@/api/api.js'
 
 
 Vue.use(Vuex)
@@ -151,6 +153,20 @@ export default new Vuex.Store({
       context.commit('removeAllCartItem')
       context.commit('resetCartItems')
       context.commit('resetCartPrice')
+    },
+
+    async registerUser(context, obj) {
+
+      const response = await post(REGISTER_USER_URL, obj)
+      console.log(response)
+      console.log(context)
+    },
+
+    async login(context, obj) {
+
+      const response = await post(LOGIN_USER_URL, obj)
+      console.log(response)
+      console.log(context)
     }
   },
   modules: {

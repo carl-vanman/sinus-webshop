@@ -60,12 +60,11 @@ export default {
     },
     methods: {
         async onSubmitRegister() {
-            const user = {}
-            user.customer = this.customer
-        
-            await this.$store.dispatch('',);
+            const user = this.customer
+            
+            await this.$store.dispatch('registerUser', user);
 
-            /* this.$router.push(""); */
+            /* this.$router.push("/"); */
         }
     }
 }

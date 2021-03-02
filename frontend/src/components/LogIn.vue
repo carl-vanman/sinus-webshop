@@ -32,8 +32,9 @@ export default {
   },
 
   methods: {
-    onSubmit() {
+    async onSubmit() {
       console.log(this.user)
+      await this.$store.dispatch('login', this.user); 
     }
   }
 };

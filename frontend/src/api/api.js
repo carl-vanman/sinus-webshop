@@ -3,6 +3,9 @@ import axios from 'axios';
 const BASE_URL = "http://localhost:5000/api/"
 export const PRODUCTS_URL = `${BASE_URL}products`
 export const ORDER_URL = `${BASE_URL}orders`
+export const REGISTER_USER_URL = `${BASE_URL}register`
+export const LOGIN_USER_URL = `${BASE_URL}auth`
+
 
 export const get = async (url) => {
 

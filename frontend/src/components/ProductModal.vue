@@ -1,11 +1,11 @@
 <template>
   <article>
     <div class="wrapper">
-      <img
+      <!-- <img
         class="active-image"
         :src="require(`../assets/${activeProduct.imgFile}`)"
         alt="..."
-      />
+      /> -->
       <h3>{{ activeProduct.title }}</h3>
       <p>{{ activeProduct.longDesc }}</p>
       <p>{{ activeProduct.price }}</p>
