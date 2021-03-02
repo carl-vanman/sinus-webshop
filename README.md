@@ -2,23 +2,26 @@
 
 # Planering Agile
 
+* 1/3
+  - Genomgång Sprint 1 och planering sprint 2 flyttas till 2/3,
+  vardera fortsätter med sina delar. Hjälp varann under dagen med små problem som dykt upp.
+
 * 25/2
   - Stand upp möte, gick igenom gårdagen och deligera individuella uppgifter och en gemensam att börja med för sprint 1.
-  - sprint 1,
-  - Gemensamma: backend Server, Produkt view
+  - sprint 1, fastställd
+  - Gemensamma: backend Server, Produkt view - klart - Produkt view redo för testning
   - Christos: enstaka Produkt Modal
   - Jessica: Cart Modal
   - Carl: Utcheckning view
   - Nav comp. ej deligerad ännu
 
   - Produkt view Storyn kodade vi under förmiddagen tillsammans för att se och förstå hämtning av data.
-  - 
+  - på eftermiddagen fortsatte vid att koda tillsammans för att passa enskild produkt till "enstaka Protukt Modal". Arbetet fortsätter vidare av dan individuellt.
 
 * 24/2
   - forts. med stories till backlog (G-del) väntar med VG-delen.
 
 påbörjade planer Sprint 1, utifrån backlogen.
-  - Backend server, fast ställd 
 
 
 * 23/2 - Planering upplägg av Agiltarbetssätt
