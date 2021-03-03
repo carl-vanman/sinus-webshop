@@ -2,10 +2,12 @@
   <nav class="nav">
     <img src="@/assets/sinus-logo.svg" alt="" />
     <div class="right">
-      <router-link to="/">Products</router-link>
-      <router-link to="/register" v-if="!getUserToken" >Register</router-link>
-      <LogIn class="margin"/>
-      <Cart />
+      <router-link to="/admin-products" v-if="getAdminStatus">Admin Products</router-link>
+      <router-link to="/orders" v-if="getAdminStatus">Orders</router-link>
+      <router-link to="/" v-if="!getAdminStatus">Products</router-link>
+      <router-link to="/register" v-if="!getUserToken">Register</router-link>
+      <LogIn class="margin" />
+      <Cart v-if="!getAdminStatus"/>
     </div>
   </nav>
 </template> 
@@ -19,9 +21,19 @@ export default {
     LogIn,
   },
 
+  // data() {
+  //   return{
+  //     admin: false
+  //   }
+  // },
+
   computed: {
     getUserToken() {
       return localStorage.getItem("token");
+    },
+
+    getAdminStatus() {
+      return this.$store.getters.getAdminStatus;
     },
   },
 };
@@ -56,6 +68,6 @@ a {
 }
 
 .margin {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 </style>
