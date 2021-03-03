@@ -19,6 +19,7 @@ export default new Vuex.Store({
     cartItems: 0,
     cartPrice: 0,
     user: null,
+    loginError: false,
   },
   getters: {
     getProductList(state) {
@@ -35,32 +36,23 @@ export default new Vuex.Store({
     },
     getInlogUser(state) {
       return state.user
+    },
+    getLoginError(state) {
+      return state.loginError
     }
-
-    /* getCartItemsId(state) {
-      return state.cart.map(item => {
-        if (item.amount > 1) {
-          for (let i = item.amount; i > 0; i--) {
-            console.log('hej')
-            return item._id
-          }
-        } else {
-        return item._id
-        }
-      })
-    } */
   },
+
   mutations: {
-    PRODUCTS_LIST(state, products) {
+    productList(state, products) {
       state.products = products
     },
 
-    ADD_PRODUCT(state, productObj) {
+    addProdcut(state, productObj) {
       state.cart.push(productObj)
       console.log(state.cart)
     },
 
-    REMOVE_FROM_CART(state, index) {
+    removeFromCart(state, index) {
       state.cart.splice(index, 1)
     },
 
@@ -72,11 +64,11 @@ export default new Vuex.Store({
       state.cart[index].amount--
     },
 
-    ADD_CART_ITEM(state) {
+    addCartItem(state) {
       state.cartItems++
     },
 
-    ADD_TO_PRICE(state, payload) {
+    addToPrice(state, payload) {
       state.cartPrice += payload.price
     },
 
@@ -102,6 +94,10 @@ export default new Vuex.Store({
 
     setUser(state, obj) {
       state.user = obj
+    },
+
+    setLoginError(state, bool) {
+      state.loginError = bool
     }
   },
 
@@ -109,7 +105,7 @@ export default new Vuex.Store({
     async getProducts({ commit }, url) {
       const response = await get(url)
       const products = response.data;
-      commit('PRODUCTS_LIST', products)
+      commit('productList', products)
     },
 
     async getProduct(context, id) {
@@ -117,8 +113,8 @@ export default new Vuex.Store({
       const response = await get(url)
       const product = response.data;
 
-      context.commit('ADD_CART_ITEM')
-      context.commit('ADD_TO_PRICE', product)
+      context.commit('addCartItems')
+      context.commit('addToPrice', product)
 
       let exists = false
 
@@ -132,7 +128,7 @@ export default new Vuex.Store({
 
       if (exists === false) {
         product.amount = 1
-        context.commit('ADD_PRODUCT', product)
+        context.commit('addProdcut', product)
       }
     },
 
@@ -141,7 +137,7 @@ export default new Vuex.Store({
       context.commit('removeCartItem')
 
       if (context.state.cart[index].amount === 1) {
-        context.commit('REMOVE_FROM_CART', index)
+        context.commit('removeFromCart', index)
       } else {
         context.commit('decreaseAmount', index)
       }
@@ -176,12 +172,16 @@ export default new Vuex.Store({
     async login(context, obj) {
 
       const response = await post(LOGIN_USER_URL, obj)
-      console.log(response)
-      localStorage.setItem('token', response.data.token)
-      location.reload();
+      if (response === 'error') {
+        context.commit('setLoginError', true)
+      } else {
+        localStorage.setItem('token', response.data.token)
+        context.commit('setLoginSuccess', false)
+        location.reload();
+      }
     },
 
-    async getUser({commit}) {
+    async getUser({ commit }) {
       setToken(localStorage.getItem('token'))
       const response = await get(USER_URL)
       const user = response.data

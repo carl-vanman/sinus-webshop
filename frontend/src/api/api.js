@@ -20,12 +20,13 @@ export const get = async (url) => {
 
 
 export const post = async (url, obj) => {
-    
+
     try {
         const response = await axios.post(url, obj)
         return response
     } catch (error) {
         console.log(error)
+        return 'error'
     }
 }
 

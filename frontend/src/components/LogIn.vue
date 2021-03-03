@@ -10,9 +10,10 @@
     <div class="login-modal" v-if="showLogin">
       <form @submit.prevent="onSubmit()" v-if="!getUserToken">
         <label for="email">Email</label>
-        <input type="text" name="email" v-model="user.email" />
+        <input type="text" name="email" v-model="user.email" @input="removeError"/>
         <label for="password">Password</label>
-        <input type="text" name="password" v-model="user.password" />
+        <input type="text" name="password" v-model="user.password" @input="removeError"/>
+        <p v-if="getLoginError">Wrong email or password!</p>
         <input type="submit" value="Login" />
       </form>
       <div v-else>
@@ -51,6 +52,12 @@ export default {
       localStorage.removeItem("token");
       location.reload();
     },
+
+    removeError() {
+      if(this.getLoginError) {
+      this.$store.commit('setLoginError', false)
+      }
+    }
   },
 
   computed: {
@@ -60,6 +67,10 @@ export default {
 
     getUser() {
       return this.$store.getters.getInlogUser
+    },
+
+    getLoginError() {
+      return this.$store.getters.getLoginError
     }
   },
 
@@ -179,5 +190,15 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #F56969;
 }
 </style>
