@@ -1,13 +1,13 @@
 <template>
   <div>
     <div v-for="(order, index) in historyOrders" :key="index">
-      {{ order._id }}
       <ul>
         <li v-for="(items, index) in order.items" :key="index">
-          {{ items.title }}
+          {{ items.title }} {{ items.price }} SEK.
         </li>
       </ul>
     </div>
+    {{ historyOrders }}
   </div>
 </template>
 
