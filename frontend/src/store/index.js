@@ -20,6 +20,7 @@ export default new Vuex.Store({
     cartPrice: 0,
     user: null,
     loginError: false,
+    historyOrders: null,
   },
   getters: {
     getProductList(state) {
@@ -39,6 +40,9 @@ export default new Vuex.Store({
     },
     getLoginError(state) {
       return state.loginError
+    },
+    getHistoryOrders(state) {
+      return state.historyOrders
     }
   },
 
@@ -98,6 +102,9 @@ export default new Vuex.Store({
 
     setLoginError(state, bool) {
       state.loginError = bool
+    },
+    setHistoryOrders(state, arr) {
+      state.historyOrders = arr
     }
   },
 
@@ -187,7 +194,14 @@ export default new Vuex.Store({
       const user = response.data
       console.log(user)
       commit('setUser', user)
-    }
+    },
+    async getOrders({ commit }) {
+      setToken(localStorage.getItem('token'))
+      const response = await get(ORDER_URL)
+      const orders = response.data
+      console.log(orders)
+      commit('setHistoryOrders', orders)
+    },
   },
   modules: {
   },

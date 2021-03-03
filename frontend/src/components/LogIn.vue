@@ -10,14 +10,24 @@
     <div class="login-modal" v-if="showLogin">
       <form @submit.prevent="onSubmit()" v-if="!getUserToken">
         <label for="email">Email</label>
-        <input type="text" name="email" v-model="user.email" @input="removeError"/>
+        <input
+          type="text"
+          name="email"
+          v-model="user.email"
+          @input="removeError"
+        />
         <label for="password">Password</label>
-        <input type="text" name="password" v-model="user.password" @input="removeError"/>
+        <input
+          type="text"
+          name="password"
+          v-model="user.password"
+          @input="removeError"
+        />
         <p v-if="getLoginError">Wrong email or password!</p>
         <input type="submit" value="Login" />
       </form>
       <div v-else>
-        <h2>Hello {{getUser.name}}!</h2>
+        <h2>Hello {{ getUser.name }}!</h2>
         <button @click="logout">Log Out</button>
       </div>
     </div>
@@ -37,8 +47,9 @@ export default {
   },
 
   created() {
-    if(localStorage.getItem("token")) {
-    this.$store.dispatch('getUser')
+    if (localStorage.getItem("token")) {
+      this.$store.dispatch("getUser");
+      this.$store.dispatch("getOrders");
     }
   },
 
@@ -54,10 +65,10 @@ export default {
     },
 
     removeError() {
-      if(this.getLoginError) {
-      this.$store.commit('setLoginError', false)
+      if (this.getLoginError) {
+        this.$store.commit("setLoginError", false);
       }
-    }
+    },
   },
 
   computed: {
@@ -66,15 +77,13 @@ export default {
     },
 
     getUser() {
-      return this.$store.getters.getInlogUser
+      return this.$store.getters.getInlogUser;
     },
 
     getLoginError() {
-      return this.$store.getters.getLoginError
-    }
+      return this.$store.getters.getLoginError;
+    },
   },
-
-  
 };
 </script>
 
@@ -171,17 +180,17 @@ form {
 
 button {
   background-color: #000;
-    color: #fff;
-    margin: 10px auto 20px auto;
-    border: none;
-    border-radius: 50px;
-    width: 210px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: #fff;
+  margin: 10px auto 20px auto;
+  border: none;
+  border-radius: 50px;
+  width: 210px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
@@ -199,6 +208,6 @@ h2 {
 p {
   margin: 0;
   font-size: 14px;
-  color: #F56969;
+  color: #f56969;
 }
 </style>
