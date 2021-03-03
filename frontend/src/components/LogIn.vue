@@ -28,6 +28,7 @@
       </form>
       <div v-else>
         <h2>Hello {{ getUser.name }}!</h2>
+        <button class="account" @click="myAccount">My Account</button>
         <button @click="logout">Log Out</button>
       </div>
     </div>
@@ -68,6 +69,9 @@ export default {
       if (this.getLoginError) {
         this.$store.commit("setLoginError", false);
       }
+    },
+    myAccount() {
+      this.$router.push("/myaccount");
     },
   },
 
@@ -191,6 +195,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.account {
+  background-color: green;
 }
 
 button:hover {
