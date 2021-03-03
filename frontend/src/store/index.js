@@ -42,12 +42,9 @@ export default new Vuex.Store({
     getLoginError(state) {
       return state.loginError
     },
-<<<<<<< HEAD
     getHistoryOrders(state) {
       return state.historyOrders
     }
-=======
->>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
   },
 
   mutations: {
@@ -107,10 +104,6 @@ export default new Vuex.Store({
     setLoginError(state, bool) {
       state.loginError = bool
     },
-<<<<<<< HEAD
-=======
-
->>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
     setHistoryOrders(state, arr) {
       state.historyOrders = arr
     }
