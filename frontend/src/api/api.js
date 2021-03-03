@@ -30,6 +30,15 @@ export const post = async (url, obj) => {
     }
 }
 
+export const patch = async (url, obj) => {
+    try {
+        const response = await axios.patch(url, obj);
+        return response;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const setToken = (token) => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }

@@ -8,7 +8,7 @@
       />
     </div>
     <div class="login-modal" v-if="showLogin">
-      <form @submit.prevent="onSubmit()" v-if="!getUserToken">
+      <form @submit.prevent="onSubmit()" v-if="!getUser">
         <label for="email">Email</label>
         <input
           type="text"
