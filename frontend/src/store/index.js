@@ -203,7 +203,6 @@ export default new Vuex.Store({
       console.log(user)
       commit('setUser', user)
     },
-<<<<<<< HEAD
     async getOrders({ commit }) {
       setToken(localStorage.getItem('token'))
       const response = await get(ORDER_URL)
@@ -211,9 +210,6 @@ export default new Vuex.Store({
       console.log(orders)
       commit('setHistoryOrders', orders)
     },
-=======
-
->>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
   },
   modules: {
   },
