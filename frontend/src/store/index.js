@@ -8,6 +8,7 @@ import { REGISTER_USER_URL } from '@/api/api.js'
 import { LOGIN_USER_URL } from '@/api/api.js'
 import { USER_URL } from '@/api/api.js'
 import { setToken } from '@/api/api.js'
+import { patch } from '@/api/api.js'
 
 
 Vue.use(Vuex)
@@ -20,7 +21,10 @@ export default new Vuex.Store({
     cartPrice: 0,
     user: null,
     loginError: false,
+    historyOrders: null,
+    admin: false,
   },
+
   getters: {
     getProductList(state) {
       return state.products
@@ -39,6 +43,12 @@ export default new Vuex.Store({
     },
     getLoginError(state) {
       return state.loginError
+    },
+    getHistoryOrders(state) {
+      return state.historyOrders
+    },
+    getAdminStatus(state) {
+      return state.admin
     }
   },
 
@@ -98,6 +108,12 @@ export default new Vuex.Store({
 
     setLoginError(state, bool) {
       state.loginError = bool
+    },
+    setHistoryOrders(state, arr) {
+      state.historyOrders = arr
+    },
+    setAdmin(state) {
+      state.admin = true
     }
   },
 
@@ -163,7 +179,6 @@ export default new Vuex.Store({
     },
 
     async registerUser(context, obj) {
-
       const response = await post(REGISTER_USER_URL, obj)
       console.log(response)
       console.log(context)
@@ -176,7 +191,7 @@ export default new Vuex.Store({
         context.commit('setLoginError', true)
       } else {
         localStorage.setItem('token', response.data.token)
-        context.commit('setLoginSuccess', false)
+        context.commit('setLoginError', false)
         location.reload();
       }
     },
@@ -187,6 +202,23 @@ export default new Vuex.Store({
       const user = response.data
       console.log(user)
       commit('setUser', user)
+
+      if(user.role === "admin") {
+        commit('setAdmin')
+      }
+    },
+
+    async getOrders({ commit }) {
+      setToken(localStorage.getItem('token'))
+      const response = await get(ORDER_URL)
+      const orders = response.data
+      console.log(orders)
+      commit('setHistoryOrders', orders)
+    },
+
+    async changeUser(context, obj) {
+      const response = await patch(USER_URL, obj)
+      console.log(response)
     }
   },
   modules: {
