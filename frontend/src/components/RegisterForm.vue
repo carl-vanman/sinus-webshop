@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="password">Repeat Password</label>
-                    <input class="correct" :class="{ matchActive: match }" v-model="repeatPassword" type="password" name="password" required>
+                    <input @input="wrongPassword" class="correct" :class="{ matchActive: match }" v-model="repeatPassword" type="password" name="password" required>
                 </div>
             </section>
             <section class="Address">
@@ -59,18 +59,16 @@ export default {
             },
         }
     },
-
-    watch: { 
-        repeatPassword() {
+    methods: {
+        wrongPassword() {
             if(this.customer.password !== this.repeatPassword) {
                 this.match = true
             } else {
                 this.match = false
             }
-        }
-    },
+        },
 
-    methods: {
+
         async onSubmitRegister() {
             const user = this.customer
                 console.log(user)
@@ -101,16 +99,11 @@ export default {
             div .col-1 {
                 grid-column: span 1;
             }
-
-            .correct {
-                border: 2px solid green;
+            .correct:focus {
+                outline-color: green;
             }
-
             .matchActive:focus {
                 outline-color: red;
-            }
-            .matchActive {
-                border: 2px solid red;
             }
         }
     }

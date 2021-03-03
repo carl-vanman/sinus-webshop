@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
     <section class="top">
-      <!-- <img src="@/assets/skate-hero-1.jpg" alt=""> -->
       <h2>Join the family!</h2>
     </section>
     <section class="flexContainer">
@@ -46,7 +45,6 @@ export default {
 }
 
 .top {
- /*  background-color: blueviolet; */
   width: 100%;
   height: 450px;
   margin-bottom: 32px;
