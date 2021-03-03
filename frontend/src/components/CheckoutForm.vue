@@ -55,7 +55,18 @@
 <script>
 import CartList from './CartList.vue'
 export default {
-  components: { CartList },
+    components: { 
+      CartList 
+    },
+    created() {
+        let user = this.$store.getters.getInlogUser
+        if(user !== null) {
+            this.customer.name = user.name
+            this.customer.street = user.address.street
+            this.customer.city = user.address.city
+            this.customer.zip = user.address.zip
+        }
+    },
     data() {
         return {
             customer: {
