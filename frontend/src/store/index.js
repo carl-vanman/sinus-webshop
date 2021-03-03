@@ -113,7 +113,7 @@ export default new Vuex.Store({
       const response = await get(url)
       const product = response.data;
 
-      context.commit('addCartItems')
+      context.commit('addCartItem')
       context.commit('addToPrice', product)
 
       let exists = false
