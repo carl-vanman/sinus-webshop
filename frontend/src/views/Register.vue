@@ -46,4 +46,24 @@ export default {
   text-align: start;
   gap: 32px;
 }
+
+.top {
+ /*  background-color: blueviolet; */
+  width: 100%;
+  height: 450px;
+  margin-bottom: 32px;
+  background-image: url('../assets/skate-hero-1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: grid;
+  place-items: center;
+
+  h2 {
+    font-size: 48px;
+    color: white;
+  }
+}
+
 </style>
