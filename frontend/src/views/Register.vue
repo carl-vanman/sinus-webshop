@@ -6,21 +6,19 @@
     </section>
     <section class="flexContainer">
       <article>
-        <header>
-          <h2>Welcome!</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-            nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
-            nisi, quam ipsam eligendi possimus! Modi placeat nisi impedit
-            deleniti ea id?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-            nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
-            nisi, quam ipsam eligendi possimus! Modi placeat nisi impedit
-            deleniti ea id?
-          </p>
-        </header>
+        <h2>Welcome!</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+          nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
+          nisi, quam ipsam eligendi possimus! Modi placeat nisi impedit
+          deleniti ea id?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+          nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
+          nisi, quam ipsam eligendi possimus! Modi placeat nisi impedit
+          deleniti ea id?
+        </p>
       </article>
       <article>
           <RegisterForm />
@@ -65,5 +63,4 @@ export default {
     color: white;
   }
 }
-
 </style>
