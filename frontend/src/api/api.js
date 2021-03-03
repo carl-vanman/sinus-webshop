@@ -5,6 +5,7 @@ export const PRODUCTS_URL = `${BASE_URL}products`
 export const ORDER_URL = `${BASE_URL}orders`
 export const REGISTER_USER_URL = `${BASE_URL}register`
 export const LOGIN_USER_URL = `${BASE_URL}auth`
+export const USER_URL = `${BASE_URL}me`
 
 
 export const get = async (url) => {
@@ -26,4 +27,8 @@ export const post = async (url, obj) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+export const setToken = (token) => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }

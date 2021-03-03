@@ -8,13 +8,17 @@
       />
     </div>
     <div class="login-modal" v-if="showLogin">
-      <form @submit.prevent="onSubmit()">
+      <form @submit.prevent="onSubmit()" v-if="!getUserToken">
         <label for="email">Email</label>
-        <input type="text" name="email" v-model="user.email"/>
+        <input type="text" name="email" v-model="user.email" />
         <label for="password">Password</label>
-        <input type="text" name="password" v-model="user.password"/>
+        <input type="text" name="password" v-model="user.password" />
         <input type="submit" value="Login" />
       </form>
+      <div v-else>
+        <h2>Hello {{getUser.name}}!</h2>
+        <button @click="logout">Log Out</button>
+      </div>
     </div>
   </div>
 </template>
@@ -27,16 +31,39 @@ export default {
       user: {
         email: null,
         password: null,
-      }
+      },
     };
+  },
+
+  created() {
+    if(localStorage.getItem("token")) {
+    this.$store.dispatch('getUser')
+    }
   },
 
   methods: {
     async onSubmit() {
-      console.log(this.user)
-      await this.$store.dispatch('login', this.user); 
+      console.log(this.user);
+      await this.$store.dispatch("login", this.user);
+    },
+
+    logout() {
+      localStorage.removeItem("token");
+      location.reload();
+    },
+  },
+
+  computed: {
+    getUserToken() {
+      return localStorage.getItem("token");
+    },
+
+    getUser() {
+      return this.$store.getters.getInlogUser
     }
-  }
+  },
+
+  
 };
 </script>
 
@@ -129,5 +156,28 @@ form {
   input[type="submit"]:focus {
     outline: none;
   }
+}
+
+button {
+  background-color: #000;
+    color: #fff;
+    margin: 10px auto 20px auto;
+    border: none;
+    border-radius: 50px;
+    width: 210px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 </style>

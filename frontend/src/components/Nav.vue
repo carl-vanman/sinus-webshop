@@ -3,7 +3,7 @@
     <img src="@/assets/sinus-logo.svg" alt="" />
     <div class="right">
       <router-link to="/">Products</router-link>
-      <router-link to="/register">Register</router-link>
+      <router-link to="/register" v-if="!getUserToken" >Register</router-link>
       <LogIn class="margin"/>
       <Cart />
     </div>
@@ -17,6 +17,12 @@ export default {
   components: {
     Cart,
     LogIn,
+  },
+
+  computed: {
+    getUserToken() {
+      return localStorage.getItem("token");
+    },
   },
 };
 </script>

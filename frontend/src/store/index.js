@@ -6,6 +6,8 @@ import { ORDER_URL } from '@/api/api.js'
 import { PRODUCTS_URL } from '@/api/api.js'
 import { REGISTER_USER_URL } from '@/api/api.js'
 import { LOGIN_USER_URL } from '@/api/api.js'
+import { USER_URL } from '@/api/api.js'
+import { setToken } from '@/api/api.js'
 
 
 Vue.use(Vuex)
@@ -15,7 +17,8 @@ export default new Vuex.Store({
     products: [],
     cart: [],
     cartItems: 0,
-    cartPrice: 0
+    cartPrice: 0,
+    user: null,
   },
   getters: {
     getProductList(state) {
@@ -30,6 +33,10 @@ export default new Vuex.Store({
     getCartPrice(state) {
       return state.cartPrice
     },
+    getInlogUser(state) {
+      return state.user
+    }
+
     /* getCartItemsId(state) {
       return state.cart.map(item => {
         if (item.amount > 1) {
@@ -91,6 +98,10 @@ export default new Vuex.Store({
 
     resetCartPrice(state) {
       state.cartPrice = 0;
+    },
+
+    setUser(state, obj) {
+      state.user = obj
     }
   },
 
@@ -141,9 +152,9 @@ export default new Vuex.Store({
       /* ev. flytta till en getter? */
 
       obj.items = [];
-      
+
       await context.getters.getCartList.forEach(item => {
-        for(let i = item.amount; i > 0; i--){
+        for (let i = item.amount; i > 0; i--) {
           obj.items.push(item._id)
         }
       });
@@ -166,7 +177,16 @@ export default new Vuex.Store({
 
       const response = await post(LOGIN_USER_URL, obj)
       console.log(response)
-      console.log(context)
+      localStorage.setItem('token', response.data.token)
+      location.reload();
+    },
+
+    async getUser({commit}) {
+      setToken(localStorage.getItem('token'))
+      const response = await get(USER_URL)
+      const user = response.data
+      console.log(user)
+      commit('setUser', user)
     }
   },
   modules: {
