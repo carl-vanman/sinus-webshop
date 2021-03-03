@@ -22,6 +22,7 @@ export default new Vuex.Store({
     loginError: false,
     historyOrders: null,
   },
+  
   getters: {
     getProductList(state) {
       return state.products
@@ -41,9 +42,12 @@ export default new Vuex.Store({
     getLoginError(state) {
       return state.loginError
     },
+<<<<<<< HEAD
     getHistoryOrders(state) {
       return state.historyOrders
     }
+=======
+>>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
   },
 
   mutations: {
@@ -103,6 +107,10 @@ export default new Vuex.Store({
     setLoginError(state, bool) {
       state.loginError = bool
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
     setHistoryOrders(state, arr) {
       state.historyOrders = arr
     }
@@ -183,7 +191,7 @@ export default new Vuex.Store({
         context.commit('setLoginError', true)
       } else {
         localStorage.setItem('token', response.data.token)
-        context.commit('setLoginSuccess', false)
+        context.commit('setLoginError', false)
         location.reload();
       }
     },
@@ -195,6 +203,7 @@ export default new Vuex.Store({
       console.log(user)
       commit('setUser', user)
     },
+<<<<<<< HEAD
     async getOrders({ commit }) {
       setToken(localStorage.getItem('token'))
       const response = await get(ORDER_URL)
@@ -202,6 +211,9 @@ export default new Vuex.Store({
       console.log(orders)
       commit('setHistoryOrders', orders)
     },
+=======
+
+>>>>>>> 7cd86449a09a39200f2c991e7d1876034aa73687
   },
   modules: {
   },
