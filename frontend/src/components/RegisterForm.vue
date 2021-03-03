@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="password">Repeat Password</label>
-                    <input v-model="customer.repeatPassword" type="password" name="password" required>
+                    <input class="correct" :class="{ matchActive: match }" v-model="repeatPassword" type="password" name="password" required>
                 </div>
             </section>
             <section class="Address">
@@ -45,11 +45,12 @@
 export default {
     data() {
         return {
+            match: true,
+            repeatPassword: null,
             customer: {
                 name: null,
                 email: null,
                 password: null,
-                repeatPassword: null, /* måste ev flyttas ut */
                 address: {
                     street: null,
                     zip: null,
@@ -58,13 +59,26 @@ export default {
             },
         }
     },
+
+    watch: { 
+        repeatPassword() {
+            if(this.customer.password !== this.repeatPassword) {
+                this.match = true
+            } else {
+                this.match = false
+            }
+        }
+    },
+
     methods: {
         async onSubmitRegister() {
             const user = this.customer
-            
-            await this.$store.dispatch('registerUser', user);
-
-            /* this.$router.push("/"); */
+                console.log(user)
+            if(user.password !== this.repeatPassword) {
+                alert("Password don't match! Try again")
+            } else {
+                await this.$store.dispatch('registerUser', user);
+            }
         }
     }
 }
@@ -86,6 +100,17 @@ export default {
             }
             div .col-1 {
                 grid-column: span 1;
+            }
+
+            .correct {
+                border: 2px solid green;
+            }
+
+            .matchActive:focus {
+                outline-color: red;
+            }
+            .matchActive {
+                border: 2px solid red;
             }
         }
     }
