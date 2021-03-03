@@ -21,6 +21,7 @@ export default new Vuex.Store({
     user: null,
     loginError: false,
   },
+  
   getters: {
     getProductList(state) {
       return state.products
@@ -39,7 +40,7 @@ export default new Vuex.Store({
     },
     getLoginError(state) {
       return state.loginError
-    }
+    },
   },
 
   mutations: {
@@ -98,6 +99,10 @@ export default new Vuex.Store({
 
     setLoginError(state, bool) {
       state.loginError = bool
+    },
+
+    setHistoryOrders(state, arr) {
+      state.historyOrders = arr
     }
   },
 
@@ -176,7 +181,7 @@ export default new Vuex.Store({
         context.commit('setLoginError', true)
       } else {
         localStorage.setItem('token', response.data.token)
-        context.commit('setLoginSuccess', false)
+        context.commit('setLoginError', false)
         location.reload();
       }
     },
@@ -187,7 +192,8 @@ export default new Vuex.Store({
       const user = response.data
       console.log(user)
       commit('setUser', user)
-    }
+    },
+
   },
   modules: {
   },
