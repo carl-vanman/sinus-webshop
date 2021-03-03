@@ -7,7 +7,7 @@
   - planering sprint 2 och la till admin biten i backlogen
   - alla tilldelades nya Todos, delade upp user storyn för Inloggad kund view mellan oss alla.
   - Alla påbörjat sitt arbete individuellt.
-  - Avslutade kvällen med kort gemmensamt möte, gick igenom sidan tillsammans, skapade en todo med småfix där vi la till små ändringar vid ville förbättra, ändra eller lägga till.
+  - Avslutade kvällen med kort gemmensamt möte, gick igenom sidan tillsammans, skapade en todo med småfix där vi la till små ändringar vi ville förbättra, ändra eller lägga till.
 
 * 2/3
   - Sprint 1, tagit mer tid än vi beräknat.

@@ -18,9 +18,14 @@
           nisi, quam ipsam eligendi possimus! Modi placeat nisi impedit
           deleniti ea id?
         </p>
+        <div v-if="registed" class="completed">
+          <h2>Welcome!</h2>
+          <h4>Your account is registerd, don't forget to login!</h4>
+        </div>
+
       </article>
       <article>
-          <RegisterForm />
+          <RegisterForm v-on:stateRegisted="stateRegisted" />
       </article>
     </section>
   </div>
@@ -32,6 +37,16 @@ export default {
     components: { 
         RegisterForm,
     },
+    data() {
+      return {
+        registed: false,
+      }
+    },
+    methods: {
+      stateRegisted() {
+        this.registed = true
+      }
+    }
 };
 </script>
 
@@ -42,6 +57,40 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   text-align: start;
   gap: 32px;
+
+  .completed {
+    width: 60%;
+    background-color: black;
+    color: white;
+    padding: 32px 64px;
+    text-align: center;
+    border-radius: 16px;
+    align-self: center;
+    margin-top: 64px;
+    opacity: 0;
+    
+    animation-name: fade;
+    animation-duration: 1s; /* or: Xms */
+    animation-iteration-count: 1;
+    animation-direction: alternate; /* or: normal */
+    animation-timing-function: ease-out; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+    animation-fill-mode: forwards; /* or: backwards, both, none */
+    /* animation-delay: 2s; */
+  }
+
+  @keyframes fade {
+    0% {
+    opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .top {

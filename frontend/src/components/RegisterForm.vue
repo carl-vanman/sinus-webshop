@@ -76,6 +76,7 @@ export default {
                 alert("Password don't match! Try again")
             } else {
                 await this.$store.dispatch('registerUser', user);
+                this.$emit('stateRegisted')
             }
         }
     }
