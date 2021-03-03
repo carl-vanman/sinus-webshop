@@ -2,6 +2,18 @@
 
 # Planering Agile
 
+* 3/3 
+  - standup,
+  - planering sprint 2 och la till admin biten i backlogen
+  - alla tilldelades nya Todos, delade upp user storyn för Inloggad kund view mellan oss alla.
+  - Alla påbörjat sitt arbete individuellt.
+
+* 2/3
+  - Sprint 1, tagit mer tid än vi beräknat.
+  - Productmodal färdigställdes, bugtesting av produkt view, cart och utchecknings view. Xtra tid behövdes för att lösa så att rätt antal produkt idn skickades med till severn vi lagd order iom. vår snyggare lösning med att öka amount i vår cart istället för upprepa produkt i listan.
+  - Alla jobba enskilt med css
+  - slutet av dan gemensam kodning utav post request vid registering och inloggning av användare
+
 
 
 * 1/3
