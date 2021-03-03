@@ -26,11 +26,6 @@
 
 <script>
 export default {
-    mounted() {
-        setTimeout(() => {  
-        this.$router.push("/");
-        }, 10000);
-    },
     methods: {
         backHome() {
             this.$router.push("/");

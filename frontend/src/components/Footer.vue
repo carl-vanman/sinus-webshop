@@ -1,7 +1,7 @@
 <template>
   <div>
       <p>
-          MADE BY CALLE, CHRISTOS AND JESSI
+          MADE BY GHOST BANANAS
       </p>
   </div>
 </template>

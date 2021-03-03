@@ -1,13 +1,13 @@
 <template>
   <nav class="nav">
-    <img src="@/assets/sinus-logo.svg" alt="" />
+    <img @click="backHome" src="@/assets/sinus-logo.svg" alt="" />
     <div class="right">
       <router-link to="/admin-products" v-if="getAdminStatus">Admin Products</router-link>
       <router-link to="/orders" v-if="getAdminStatus">Orders</router-link>
       <router-link to="/" v-if="!getAdminStatus">Products</router-link>
       <router-link to="/register" v-if="!getUserToken">Register</router-link>
       <LogIn class="margin" />
-      <Cart v-if="!getAdminStatus"/>
+      <Cart v-if="!getAdminStatus" />
     </div>
   </nav>
 </template> 
@@ -36,6 +36,11 @@ export default {
       return this.$store.getters.getAdminStatus;
     },
   },
+  methods: {
+    backHome() {
+      this.$router.push("/");
+      }
+  },
 };
 </script>
 
@@ -49,6 +54,7 @@ export default {
 
 img {
   height: 60px;
+  cursor: pointer;
 }
 
 .right {
