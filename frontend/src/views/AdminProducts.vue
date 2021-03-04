@@ -47,7 +47,11 @@ export default {
   methods: {
       editProduct(index) {
       this.productToEdit = this.getProducts[index]
-      console.log(this.productToEdit)
+      window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
     },
   }
 };

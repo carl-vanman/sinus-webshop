@@ -9,6 +9,7 @@ import { LOGIN_USER_URL } from '@/api/api.js'
 import { USER_URL } from '@/api/api.js'
 import { setToken } from '@/api/api.js'
 import { patch } from '@/api/api.js'
+import { del } from '@/api/api.js'
 /* import * as API from '@/api' */
 
 
@@ -236,7 +237,19 @@ export default new Vuex.Store({
       const url = `${PRODUCTS_URL}/${obj._id}`
       const response = await patch(url, obj)
       console.log(response)
-    }
+    },
+
+    async createProduct(context, obj) {
+      const response = await post(PRODUCTS_URL, obj)
+      console.log(response)
+    },
+
+    async deleteProduct(context, obj){ 
+      console.log(obj)
+      const url = `${PRODUCTS_URL}/${obj._id}`
+      const response = await del(url, obj)
+      console.log(response)
+    },
   },
   modules: {
   },

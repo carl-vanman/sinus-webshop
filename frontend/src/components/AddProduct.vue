@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="form">
-        <form @submit.prevent="saveProduct">
+        <form>
           <div class="left">
             <label for="title">Product title</label>
             <input type="text" name="title" v-model="edit.title" />
@@ -19,17 +19,24 @@
             <label for="price">Product price</label>
             <input type="text" name="price" v-model="edit.price" />
 
-            <label for="id">Photo title</label>
-            <input type="text" name="id" v-model="edit.imgFile" />
+            <label for="id">Photo file</label>
+            <select v-model="edit.imgFile">
+              <option disabled selected value>-- select an option --</option>
+              <option v-for="(file, index) in photoFiles" :key="index">
+                {{ file }}
+              </option>
+            </select>
           </div>
           <div class="right">
             <label for="desc">Product description</label>
             <textarea name="desc" v-model="edit.longDesc" class="long" />
             <div class="buttons">
-              <input type="submit" value="SAVE EDIT" />
+              <button @click="saveProduct">SAVE EDIT</button>
 
-              <button>SAVE NEW</button>
-              <button class="delete">DELETE</button>
+              <button @click.prevent="createProduct">CREATE NEW</button>
+              <button class="delete" @click.prevent="deleteProduct">
+                DELETE
+              </button>
             </div>
           </div>
         </form>
@@ -46,23 +53,50 @@ export default {
   data() {
     return {
       edit: {
-        imgFile: "add-img.svg",
         title: "",
+        price: null,
         shortDesc: "",
         longDesc: "",
-        price: null,
+        imgFile: "add-img.svg",
         _id: "",
       },
+
+      photoFiles: [
+        "wheel-wave.png",
+        "wheel-spinner.png",
+        "wheel-rocket.png",
+        "hoodie-ash.png",
+        "hoodie-ocean.png",
+        "hoodie-fire.png",
+        "skateboard-generic.png",
+        "skateboard-greta.png",
+        "logo.png",
+        "icon-bag-black.svg",
+      ],
     };
   },
 
   methods: {
     saveProduct() {
-      console.log(this.edit);
       this.$store.dispatch("changeProduct", this.edit);
       this.$store.dispatch("getProducts");
       location.reload();
     },
+
+    createProduct() {
+      this.edit.price = parseInt(this.edit.price);
+      this.$store.dispatch("createProduct", this.edit);
+      location.reload();
+    },
+
+    deleteProduct() {
+      const confirm = window.confirm("Are you sure?");
+      if (confirm) {
+        this.$store.dispatch("deleteProduct", this.edit);
+        location.reload();
+      }
+    },
+
   },
 
   watch: {
@@ -98,9 +132,7 @@ p {
   margin-bottom: 4px;
   margin-top: 18px;
 }
-// .form {
-//   height: 300px;
-// }
+
 .img {
   width: 300px;
   height: 280px;
@@ -135,6 +167,7 @@ label {
 }
 
 input,
+select,
 textarea {
   width: 320px;
   background-color: #404040;
@@ -142,13 +175,19 @@ textarea {
   height: 40px;
   color: #fff;
 }
+
+select {
+  width: 326px;
+  height: 44px;
+}
 .left {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  input {
+  input,
+  select {
     margin-bottom: 10px;
   }
 }
@@ -162,7 +201,6 @@ textarea {
     height: 220px;
   }
 
-  input[type="submit"],
   button {
     height: 45px;
     width: 100px;
@@ -171,15 +209,9 @@ textarea {
     margin-bottom: 10px;
     margin-top: 10px;
     border: none;
-  }
-
-  input[type="submit"]:hover,
-  button:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.7);
   }
 
-  input[type="submit"]:focus,
   button:focus {
     outline: none;
   }
