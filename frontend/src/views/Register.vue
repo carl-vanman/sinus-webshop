@@ -5,7 +5,7 @@
     </section>
     <section class="flexContainer">
       <article>
-        <h2>Welcome!</h2>
+        <h2>Sinsus Skateboards</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
           nesciunt, iste tempore cumque incidunt facere ullam illum excepturi

@@ -184,6 +184,10 @@ label {
   cursor: pointer;
 }
 
+.submitButton:focus {
+  outline: none;
+}
+
 .cartList {
   height: 238px;
   overflow: scroll;
