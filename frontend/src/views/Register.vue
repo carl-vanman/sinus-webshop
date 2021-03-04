@@ -5,7 +5,7 @@
     </section>
     <section class="flexContainer">
       <article>
-        <h2>Sinsus Skateboards</h2>
+        <h2>Welcome!</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
           nesciunt, iste tempore cumque incidunt facere ullam illum excepturi
@@ -19,8 +19,8 @@
           deleniti ea id?
         </p>
         <div v-if="registed" class="completed">
-          <h2>Welcome!</h2>
-          <h4>Your account is registerd, don't forget to login!</h4>
+          <h2>COWABUNGA!</h2>
+          <h4>Your account is registered, don't forget to login!</h4>
         </div>
 
       </article>

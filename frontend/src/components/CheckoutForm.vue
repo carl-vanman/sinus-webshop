@@ -117,9 +117,16 @@ export default {
       user.customer = this.customer;
       user.payment = this.payment;
 
+<<<<<<< HEAD
       await this.$store.dispatch("registerOrder", user);
 
       // await this.$store.dispatch("registerOrder", user);
+=======
+            if(localStorage.getItem('token')) {
+              this.$store.dispatch("getOrders");
+            }
+            this.$router.push("/OrderConfirmed");
+>>>>>>> 9db99f1120ea0e5d74812b236b9dfed6a2c1c387
 
       if (localStorage.getItem("token")) {
         this.$store.dispatch("getOrders");
