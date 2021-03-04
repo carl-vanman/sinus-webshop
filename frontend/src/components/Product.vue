@@ -33,6 +33,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  cursor: pointer;
 }
 .top {
   text-align: start;

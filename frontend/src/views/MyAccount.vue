@@ -11,7 +11,7 @@
       </div>
     </section>
     <section>
-      <h2 class="orderz">orders history</h2>
+      <h2 class="orders">orders history</h2>
       <div
         class="order-separators"
         v-for="(order, index) in historyOrders"
@@ -98,7 +98,7 @@ h3 {
   color: lightgrey;
 }
 
-.orderz {
+.orders {
   text-align: start;
 }
 

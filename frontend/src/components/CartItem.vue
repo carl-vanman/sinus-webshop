@@ -79,7 +79,9 @@ img {
   }
 
   h2 {
+    font-size: 18px;
     text-transform: uppercase;
+    margin-top: 5px;
   }
 }
 
