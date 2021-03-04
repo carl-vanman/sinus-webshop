@@ -21,8 +21,10 @@
 
             <label for="id">Photo file</label>
             <select v-model="edit.imgFile">
-              <option disabled selected value> -- select an option -- </option>
-              <option v-for="(file, index) in photoFiles" :key="index">{{file}}</option>
+              <option disabled selected value>-- select an option --</option>
+              <option v-for="(file, index) in photoFiles" :key="index">
+                {{ file }}
+              </option>
             </select>
           </div>
           <div class="right">
@@ -68,13 +70,14 @@ export default {
         "hoodie-fire.png",
         "skateboard-generic.png",
         "skateboard-greta.png",
+        "logo.png",
+        "icon-bag-black.svg",
       ],
     };
   },
 
   methods: {
     saveProduct() {
-      console.log(this.edit);
       this.$store.dispatch("changeProduct", this.edit);
       this.$store.dispatch("getProducts");
       location.reload();
@@ -82,7 +85,6 @@ export default {
 
     createProduct() {
       this.edit.price = parseInt(this.edit.price);
-      console.log(this.edit);
       this.$store.dispatch("createProduct", this.edit);
       location.reload();
     },
@@ -94,12 +96,12 @@ export default {
         location.reload();
       }
     },
+
   },
 
   watch: {
     productToEdit() {
       this.edit = this.productToEdit;
-      console.log(this.edit);
     },
   },
 };
