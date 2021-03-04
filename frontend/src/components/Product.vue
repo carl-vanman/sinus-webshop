@@ -26,7 +26,8 @@ export default {
 <style scoped lang="scss">
 .product {
   width: 100%;
-  height: 450px;
+  /* height: 450px; */
+  height: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
