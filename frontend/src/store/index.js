@@ -118,8 +118,8 @@ export default new Vuex.Store({
   },
 
   actions: {
-    async getProducts({ commit }, url) {
-      const response = await get(url)
+    async getProducts({ commit }) {
+      const response = await get(PRODUCTS_URL)
       const products = response.data;
       commit('productList', products)
     },
@@ -218,6 +218,12 @@ export default new Vuex.Store({
 
     async changeUser(context, obj) {
       const response = await patch(USER_URL, obj)
+      console.log(response)
+    },
+
+    async changeProduct(context, obj) {
+      const url = `${PRODUCTS_URL}/${obj._id}`
+      const response = await patch(url, obj)
       console.log(response)
     }
   },

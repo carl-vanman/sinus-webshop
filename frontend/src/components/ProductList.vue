@@ -6,7 +6,7 @@
       class="item"
     >
       <Product @click.native="setActiveProduct(index)" :product="product" />
-      <button @click="addToCart(product._id)" class="lägg i cart">
+      <button @click="addToCart(product._id)">
         <img src="@/assets/icon-bag-black.svg" alt="" />
       </button>
     </div>
@@ -21,7 +21,6 @@
 
 <script>
 import Product from "../components/Product.vue";
-import { PRODUCTS_URL } from "@/api/api.js";
 import ProductModal from "./ProductModal.vue";
 
 export default {
@@ -35,7 +34,7 @@ export default {
     };
   },
   async created() {
-    await this.$store.dispatch("getProducts", PRODUCTS_URL);
+    await this.$store.dispatch("getProducts");
   },
   computed: {
     getProducts() {
