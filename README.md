@@ -6,6 +6,7 @@
   - standup på morgonen, gick igenom de vi alla jobbat med och om man stött på problem.
   - delade upp arbetet av Admin delen.
   - alla fortsatte jobba vidare individuellt
+  - möte på eftermiddan, stämmer av hur det går för alla och kollar igenom de vi gjort. Fortsätter med individuellt.
 
 * 3/3 
   - standup,
