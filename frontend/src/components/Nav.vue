@@ -3,7 +3,7 @@
     <img @click="backHome" src="@/assets/sinus-logo.svg" alt="" />
     <div class="right">
       <router-link to="/admin-products" v-if="getAdminStatus">Admin Products</router-link>
-      <router-link to="/orders" v-if="getAdminStatus">Orders</router-link>
+      <router-link to="/admin-orders" v-if="getAdminStatus">Orders</router-link>
       <router-link to="/" v-if="!getAdminStatus">Products</router-link>
       <router-link to="/register" v-if="!getUserToken">Register</router-link>
       <LogIn class="margin" />

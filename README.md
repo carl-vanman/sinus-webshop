@@ -3,7 +3,9 @@
 # Planering Agile
 
 * 4/3
-  - 
+  - standup på morgonen, gick igenom de vi alla jobbat med och om man stött på problem.
+  - delade upp arbetet av Admin delen.
+  - alla fortsatte jobba vidare individuellt
 
 * 3/3 
   - standup,
