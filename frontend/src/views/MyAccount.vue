@@ -2,10 +2,13 @@
   <div>
     <section>
       <h2 class="orderz">account details</h2>
-      <p>{{ userDetails.name }}</p>
-      <p>{{ userDetails.email }}</p>
-      <p>{{ userDetails.address.street }}</p>
-      <p>{{ userDetails }}</p>
+      <div class="account-details">
+        <p>{{ userDetails.name }}</p>
+        <p>{{ userDetails.email }}</p>
+        <p>{{ userDetails.address.street }}</p>
+        <p>{{ userDetails.address.zip }} {{ userDetails.address.city }}</p>
+        <!-- <p>{{ userDetails }}</p> -->
+      </div>
     </section>
     <section>
       <h2 class="orderz">orders history</h2>
@@ -64,6 +67,11 @@ li:nth-child(odd) {
   background: lightgrey;
 }
 
+li:hover {
+  background-color: slateblue;
+  color: #fff;
+}
+
 li {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -96,5 +104,12 @@ h3 {
 
 .order-separators {
   border-top: 1px solid #2c3e50;
+}
+
+.account-details {
+  background: #fff;
+  text-align: start;
+  padding: 15px;
+  font-weight: bold;
 }
 </style>
