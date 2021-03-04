@@ -83,49 +83,48 @@
 <script>
 import CartList from "./CartList.vue";
 export default {
-    components: { 
-      CartList 
-    },
-    created() {
-        let user = this.$store.getters.getInlogUser
-        if(user !== null) {
-            this.customer.name = user.name
-            this.customer.street = user.address.street
-            this.customer.city = user.address.city
-            this.customer.zip = user.address.zip
-        }
-    },
-    data() {
-        return {
-            customer: {
-                name: null,
-                street: null,
-                city: null,
-                zip: null
-            },
-            payment: {
-                cardOwner: null,
-                cardNumber: null,
-                cardValid: null,
-                cardCVV: null
-            },
-        }
-    },
-    methods: {
-        async onSubmit() {
-            const user = {}
-            user.customer = this.customer
-            user.payment = this.payment
-        
-            await this.$store.dispatch('registerOrder', user);
+  components: {
+    CartList,
+  },
+  created() {
+    let user = this.$store.getters.getInlogUser;
+    if (user !== null) {
+      this.customer.name = user.name;
+      this.customer.street = user.address.street;
+      this.customer.city = user.address.city;
+      this.customer.zip = user.address.zip;
+    }
+  },
+  data() {
+    return {
+      customer: {
+        name: null,
+        street: null,
+        city: null,
+        zip: null,
+      },
+      payment: {
+        cardOwner: null,
+        cardNumber: null,
+        cardValid: null,
+        cardCVV: null,
+      },
+    };
+  },
+  methods: {
+    async onSubmit() {
+      const user = {};
+      user.customer = this.customer;
+      user.payment = this.payment;
 
-            await this.$store.dispatch("registerOrder", user);
+      await this.$store.dispatch("registerOrder", user);
 
-            if(localStorage.getItem('token')) {
-              this.$store.dispatch("getOrders");
-            }
-            this.$router.push("/OrderConfirmed");
+      // await this.$store.dispatch("registerOrder", user);
 
+      if (localStorage.getItem("token")) {
+        this.$store.dispatch("getOrders");
+      }
+      this.$router.push("/OrderConfirmed");
     },
   },
 };

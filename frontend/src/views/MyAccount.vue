@@ -1,19 +1,37 @@
 <template>
   <div>
-    <div class="test" v-for="(order, index) in historyOrders" :key="index">
-      <ul>
-        <li v-for="(items, index) in order.items" :key="index">
-          <img
-            class="history-img-preview"
-            :src="require(`../assets/${items.imgFile}`)"
-            alt="..."
-          />
-          <h2 class="item-title">{{ items.title }}</h2>
-          <p class="item-price">{{ items.price }} <span>SEK</span></p>
-          <p>{{ items.amount }}<span class="amount">st</span></p>
-        </li>
-      </ul>
-    </div>
+    <section>
+      <h2 class="orderz">account details</h2>
+      <p>{{ userDetails.name }}</p>
+      <p>{{ userDetails.email }}</p>
+      <p>{{ userDetails.address.street }}</p>
+      <p>{{ userDetails }}</p>
+    </section>
+    <section>
+      <h2 class="orderz">orders history</h2>
+      <div
+        class="order-separators"
+        v-for="(order, index) in historyOrders"
+        :key="index"
+      >
+        <h3>
+          Order id: <span class="order_id">{{ order._id }}</span>
+        </h3>
+        <ul>
+          <li v-for="(items, index) in order.items" :key="index">
+            <img
+              class="history-img-preview"
+              :src="require(`../assets/${items.imgFile}`)"
+              alt="..."
+            />
+            <h2 class="item-title">{{ items.title }}</h2>
+            <p class="item-price">{{ items.price }} <span>SEK</span></p>
+            <p>{{ items.amount }}<span class="amount">st</span></p>
+            <p class="item-title">{{ items._id }}</p>
+          </li>
+        </ul>
+      </div>
+    </section>
     <!-- {{ historyOrders }} -->
   </div>
 </template>
@@ -23,11 +41,15 @@ export default {
   data() {
     return {
       historyOrders: null,
+      userDetails: null,
     };
   },
   created() {
     let orders = this.$store.getters.getHistoryOrders;
+    let user = this.$store.getters.getInlogUser;
+    console.log(user);
     this.historyOrders = orders;
+    this.userDetails = user;
   },
 };
 </script>
@@ -43,16 +65,13 @@ li:nth-child(odd) {
 }
 
 li {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 15px;
-  margin-bottom: 5px;
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 .amount {
@@ -61,7 +80,21 @@ ul {
 }
 
 h2,
-p {
+p,
+h3 {
   text-transform: uppercase;
+}
+
+h3 {
+  text-align: start;
+  color: lightgrey;
+}
+
+.orderz {
+  text-align: start;
+}
+
+.order-separators {
+  border-top: 1px solid #2c3e50;
 }
 </style>
