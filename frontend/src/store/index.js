@@ -9,6 +9,7 @@ import { LOGIN_USER_URL } from '@/api/api.js'
 import { USER_URL } from '@/api/api.js'
 import { setToken } from '@/api/api.js'
 import { patch } from '@/api/api.js'
+/* import * as API from '@/api' */
 
 
 Vue.use(Vuex)
