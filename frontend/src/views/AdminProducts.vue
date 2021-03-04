@@ -47,7 +47,6 @@ export default {
   methods: {
       editProduct(index) {
       this.productToEdit = this.getProducts[index]
-      console.log(this.productToEdit)
     },
   }
 };

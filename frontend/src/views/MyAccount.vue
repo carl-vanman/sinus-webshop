@@ -10,7 +10,7 @@
         <!-- <p>{{ userDetails }}</p> -->
       </div>
     </section>
-    <section>
+    <section v-if="userDetails.role === 'customer'">
       <h2 class="orders">orders history</h2>
       <div
         class="order-separators"

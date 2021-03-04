@@ -72,6 +72,7 @@ export default {
     },
     myAccount() {
       this.$router.push("/myaccount");
+      this.showLogin = false;
     },
   },
 
