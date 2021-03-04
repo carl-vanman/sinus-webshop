@@ -198,7 +198,11 @@ button {
 }
 
 .account {
-  background-color: green;
+  background-color: #75bf48;
+}
+
+.account:hover {
+  background-color: #8bda5b;
 }
 
 button:hover {

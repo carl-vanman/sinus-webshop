@@ -13,7 +13,7 @@
           <h2 class="title">{{ activeProduct.title }}</h2>
           <p class="short-desc">{{ activeProduct.shortDesc }}</p>
           <p class="long-desc">{{ activeProduct.longDesc }}</p>
-          <p class="price">{{ activeProduct.price }} SEK</p>
+          <p class="item-price">{{ activeProduct.price }} SEK</p>
           <button @click="addToCart(activeProduct._id)">
             <img src="@/assets/icon-bag-white.svg" alt="" />
             <h2>Take my money!</h2>
@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .product-mask {
   z-index: 10;
   top: 0;
@@ -104,7 +104,7 @@ export default {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.price {
+.item-price {
   font-size: 26px;
   line-height: 35px;
   font-weight: bold;
