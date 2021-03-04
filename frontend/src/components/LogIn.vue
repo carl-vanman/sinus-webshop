@@ -4,10 +4,10 @@
       <img
         src="@/assets/icon-user-black.svg"
         alt="login"
-        @click="showLogin = !showLogin"
+        @click="showLoginFunction"
       />
     </div>
-    <div class="login-modal" v-if="showLogin">
+    <div class="login-modal" v-if="loginStatus">
       <form @submit.prevent="onSubmit()" v-if="!getUser">
         <label for="email">Email</label>
         <input
@@ -39,7 +39,6 @@
 export default {
   data() {
     return {
-      showLogin: false,
       user: {
         email: null,
         password: null,
@@ -72,7 +71,11 @@ export default {
     },
     myAccount() {
       this.$router.push("/myaccount");
+      this.$store.commit('setShowState')
     },
+    showLoginFunction() {
+      this.$store.commit('setShowState')
+    }
   },
 
   computed: {
@@ -86,6 +89,9 @@ export default {
 
     getLoginError() {
       return this.$store.getters.getLoginError;
+    },
+    loginStatus() {
+      return this.$store.getters.getShowLogin
     },
   },
 };

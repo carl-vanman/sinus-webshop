@@ -16,6 +16,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    /* calle test loginknapp */
+    showLogin: false,
     products: [],
     cart: [],
     cartItems: 0,
@@ -50,6 +52,10 @@ export default new Vuex.Store({
     },
     getAdminStatus(state) {
       return state.admin
+    },
+    /* calle test login knapp */
+    getShowLogin(state) {
+      return state.showLogin
     }
   },
 
@@ -115,6 +121,10 @@ export default new Vuex.Store({
     },
     setAdmin(state) {
       state.admin = true
+    },
+    /*  calle testa loginknapp*/
+    setShowState(state) {
+      state.showLogin = !state.showLogin
     }
   },
 

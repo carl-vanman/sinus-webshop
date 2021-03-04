@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div id="top" class="wrapper">
     <section class="top">
       <h2>Join the family!</h2>
     </section>
@@ -20,7 +20,8 @@
         </p>
         <div v-if="registed" class="completed">
           <h2>COWABUNGA!</h2>
-          <h4>Your account is registered, don't forget to login!</h4>
+          <h4>Your account is registered</h4>
+          <button @click.prevent="scrollToTop" class="login">Login</button>
         </div>
 
       </article>
@@ -45,13 +46,20 @@ export default {
     methods: {
       stateRegisted() {
         this.registed = true
+      },
+      scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+        this.$store.commit('setShowState')
       }
     }
 };
 </script>
 
 <style scoped lang="scss">
-
 .flexContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -76,6 +84,22 @@ export default {
     animation-timing-function: ease-out; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
     animation-fill-mode: forwards; /* or: backwards, both, none */
     /* animation-delay: 2s; */
+    
+    .login {
+      padding: 0px 32px;
+      height: 48px;
+      color: black;
+      background-color: white;
+      border: none;
+      border-radius: 100vw;
+      place-self: end;
+      font-size: 18px;
+      cursor: pointer;
+      position: relative;
+      align-self: flex-end;
+    }
+    .login:focus {outline:0;}
+
   }
 
   @keyframes fade {

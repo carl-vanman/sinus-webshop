@@ -132,5 +132,7 @@ export default {
             position: relative;
             align-self: flex-end;
             }
+
+        .submitButton:focus {outline:0;}
     }
 </style>
