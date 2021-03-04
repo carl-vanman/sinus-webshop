@@ -42,6 +42,8 @@ body {
 
   display: grid;
   grid-template-columns: 1fr minmax(900px, 1064px) 1fr;
+  /* nedan för auto-fill */
+  /* grid-template-columns: 1fr minmax(500px, 1064px) 1fr; */
 
   .wrapper {
     grid-column: 2 / -2;

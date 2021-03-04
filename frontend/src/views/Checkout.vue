@@ -29,6 +29,6 @@ export default {
   }
 
   .flexContainer {
-    display: flex;
+    /* display: flex; */
   }
 </style>
