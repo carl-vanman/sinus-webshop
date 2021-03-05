@@ -122,7 +122,7 @@ article {
     border-radius: 5px;
     padding: 16px;
     margin-bottom: 32px;
-    transition: 350ms;
+    transition: 250ms;
 
     .orderInfo {
       display: flex;
