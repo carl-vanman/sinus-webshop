@@ -1,20 +1,31 @@
 <template>
-  <div class="productBoard">
-    <div
-      v-for="(product, index) in getProducts"
-      :key="product._id"
-      class="item"
-    >
-      <Product @click.native="setActiveProduct(index)" :product="product" />
-      <button @click="addToCart(product._id)">
-        <img src="@/assets/icon-bag-black.svg" alt="" />
-      </button>
+  <div class="product-list">
+    <div class="top">
+      <h2>PRODUCTS</h2>
+      <select v-model="filter">
+        <option>All products</option>
+        <option>board</option>
+        <option>wheels</option>
+        <option>clothes</option>
+      </select>
     </div>
-    <div>
-      <ProductModal
-        v-on:disableActive="disable"
-        :activeProduct="activeProduct"
-      />
+    <div class="productBoard">
+      <div
+        v-for="(product, index) in getProducts"
+        :key="product._id"
+        class="item"
+      >
+        <Product @click.native="setActiveProduct(index)" :product="product" />
+        <button @click="addToCart(product._id)">
+          <img src="@/assets/icon-bag-black.svg" alt="" />
+        </button>
+      </div>
+      <div>
+        <ProductModal
+          v-on:disableActive="disable"
+          :activeProduct="activeProduct"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +42,7 @@ export default {
   data() {
     return {
       activeProduct: {},
+      filter: 'All products',
     };
   },
   async created() {
@@ -38,7 +50,7 @@ export default {
   },
   computed: {
     getProducts() {
-      return this.$store.getters.getProductList;
+      return this.$store.getters.getProductCategory(this.filter);
     },
   },
   methods: {
@@ -89,5 +101,19 @@ export default {
       outline: none;
     }
   }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  width: 250px;
+  height: 40px;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding-left: 10px;
 }
 </style>

@@ -33,6 +33,14 @@ export default new Vuex.Store({
     getProductList(state) {
       return state.products
     },
+    getProductCategory: (state) => (str) => {
+      if (str === "All products") {
+        return state.products
+      } else {
+        return state.products.filter(product => product.category === str)
+      }
+
+    },
     getCartList(state) {
       return state.cart
     },
@@ -215,7 +223,7 @@ export default new Vuex.Store({
       console.log(user)
       commit('setUser', user)
 
-      if(user.role === "admin") {
+      if (user.role === "admin") {
         commit('setAdmin')
       }
     },
@@ -244,7 +252,7 @@ export default new Vuex.Store({
       console.log(response)
     },
 
-    async deleteProduct(context, obj){ 
+    async deleteProduct(context, obj) {
       console.log(obj)
       const url = `${PRODUCTS_URL}/${obj._id}`
       const response = await del(url, obj)
