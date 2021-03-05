@@ -1,13 +1,42 @@
 <template>
   <div>
-    <section>
-      <h2 class="orderz">account details</h2>
+    <section v-if="!edit">
+      <h2 class="orders">account details</h2>
       <div class="account-details">
         <p>{{ userDetails.name }}</p>
         <p>{{ userDetails.email }}</p>
         <p>{{ userDetails.address.street }}</p>
         <p>{{ userDetails.address.zip }} {{ userDetails.address.city }}</p>
+        <button @click="edit = !edit">EDIT</button>
         <!-- <p>{{ userDetails }}</p> -->
+      </div>
+    </section>
+    <section v-else>
+      <h2 class="orders">edit account details</h2>
+      <div class="edit">
+        <form>
+          <label for="name">Name</label>
+          <input v-model="userDetails.name" type="text" name="name" />
+
+          <label for="email">Email</label>
+          <input v-model="userDetails.email" type="email" name="email" />
+
+          <label for="street">Street Address</label>
+          <input
+            v-model="userDetails.address.street"
+            type="text"
+            name="street"
+          />
+          <div class="row">
+            <label for="zipCode">Zip Code</label>
+            <input v-model="userDetails.address.zip" type="text" name="zip" />
+
+            <label for="city">City</label>
+            <input v-model="userDetails.address.city" type="text" name="city" />
+          </div>
+
+          <button @click="editUser">SAVE</button>
+        </form>
       </div>
     </section>
     <section v-if="userDetails.role === 'customer'">
@@ -45,6 +74,7 @@ export default {
     return {
       historyOrders: null,
       userDetails: null,
+      edit: false,
     };
   },
   created() {
@@ -53,6 +83,14 @@ export default {
     console.log(user);
     this.historyOrders = orders;
     this.userDetails = user;
+  },
+
+  methods: {
+    editUser() {
+      this.$store.dispatch("changeUser", this.userDetails);
+      console.log(this.userDetails);
+      this.edit = false;
+    },
   },
 };
 </script>
@@ -111,5 +149,16 @@ h3 {
   text-align: start;
   padding: 15px;
   font-weight: bold;
+}
+.edit {
+  background: #fff;
+  text-align: start;
+  padding: 15px;
+  font-weight: bold;
+}
+form {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
