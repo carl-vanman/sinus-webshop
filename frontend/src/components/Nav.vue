@@ -29,7 +29,7 @@ export default {
 
   computed: {
     getUserToken() {
-      return localStorage.getItem("token");
+      return sessionStorage.getItem("token");
     },
 
     getAdminStatus() {

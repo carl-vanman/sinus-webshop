@@ -121,7 +121,7 @@ export default {
 
       // await this.$store.dispatch("registerOrder", user);
 
-      if (localStorage.getItem("token")) {
+      if (sessionStorage.getItem("token")) {
         this.$store.dispatch("getOrders");
       }
       this.$router.push("/OrderConfirmed");

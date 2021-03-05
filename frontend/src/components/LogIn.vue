@@ -49,7 +49,7 @@ export default {
   },
 
   created() {
-    if (localStorage.getItem("token")) {
+    if (sessionStorage.getItem("token")) {
       this.$store.dispatch("getUser");
       this.$store.dispatch("getOrders");
     }
@@ -64,7 +64,7 @@ export default {
     },
 
     logout() {
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       this.$router.push("/");
       location.reload();
     },
@@ -85,7 +85,7 @@ export default {
 
   computed: {
     getUserToken() {
-      return localStorage.getItem("token");
+      return sessionStorage.getItem("token");
     },
 
     getUser() {

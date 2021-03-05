@@ -207,13 +207,13 @@ export default new Vuex.Store({
       if (response === 'error') {
         context.commit('setLoginError', true)
       } else {
-        localStorage.setItem('token', response.data.token)
+        sessionStorage.setItem('token', response.data.token)
         context.commit('setLoginError', false)
       }
     },
 
     async getUser({ commit }) {
-      setToken(localStorage.getItem('token'))
+      setToken(sessionStorage.getItem('token'))
       const response = await get(USER_URL)
       const user = response.data
       console.log(user)
@@ -225,7 +225,7 @@ export default new Vuex.Store({
     },
 
     async getOrders({ commit }) {
-      setToken(localStorage.getItem('token'))
+      setToken(sessionStorage.getItem('token'))
       const response = await get(ORDER_URL)
       const orders = response.data
       console.log(orders)
