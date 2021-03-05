@@ -56,7 +56,10 @@ export default {
   methods: {
     async onSubmit() {
       console.log(this.user);
+      this.$router.push("/myaccount");
       await this.$store.dispatch("login", this.user);
+      location.reload();
+      
     },
 
     logout() {
@@ -72,11 +75,11 @@ export default {
     },
     myAccount() {
       this.$router.push("/myaccount");
-      this.$store.commit('setShowState')
+      this.$store.commit("setShowState");
     },
     showLoginFunction() {
-      this.$store.commit('setShowState')
-    }
+      this.$store.commit("setShowState");
+    },
   },
 
   computed: {
@@ -92,7 +95,7 @@ export default {
       return this.$store.getters.getLoginError;
     },
     loginStatus() {
-      return this.$store.getters.getShowLogin
+      return this.$store.getters.getShowLogin;
     },
   },
 };

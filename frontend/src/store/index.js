@@ -209,7 +209,6 @@ export default new Vuex.Store({
       } else {
         localStorage.setItem('token', response.data.token)
         context.commit('setLoginError', false)
-        location.reload();
       }
     },
 
