@@ -118,10 +118,11 @@ article {
   }
 
   .order {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
     padding: 16px;
     margin-bottom: 32px;
+    transition: 250ms;
 
     .orderInfo {
       display: flex;
@@ -155,6 +156,16 @@ article {
     .itemId {
       justify-self: end;
       padding-right: 16px;
+    }
+  }
+  .order:hover {
+    background-color: slateblue;
+    /* color: #fff; */
+    li:nth-child(even) {
+      color: white;
+    }
+    li:nth-child(odd) {
+      background-color: white;
     }
   }
 }

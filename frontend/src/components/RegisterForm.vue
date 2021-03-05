@@ -13,11 +13,22 @@
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input v-model="customer.password" type="password" name="password" required>
+                    <input 
+                    v-model="customer.password" 
+                    type="password" 
+                    name="password" 
+                    required>
                 </div>
                 <div>
                     <label for="password">Repeat Password</label>
-                    <input @input="wrongPassword" class="correct" :class="{ matchActive: match }" v-model="repeatPassword" type="password" name="password" required>
+                    <input 
+                    @input="wrongPassword" 
+                    class="correct" 
+                    :class="{ matchActive: match }" 
+                    v-model="repeatPassword" 
+                    type="password" 
+                    name="password" 
+                    required>
                 </div>
             </section>
             <section class="Address">
@@ -45,6 +56,8 @@
 export default {
     data() {
         return {
+
+            type: "password",
             match: true,
             repeatPassword: null,
             customer: {
