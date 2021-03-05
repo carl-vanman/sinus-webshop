@@ -11,17 +11,19 @@
       <form @submit.prevent="onSubmit()" v-if="!getUser">
         <label for="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           v-model="user.email"
           @input="removeError"
+          required
         />
         <label for="password">Password</label>
         <input
-          type="text"
+          type="password"
           name="password"
           v-model="user.password"
           @input="removeError"
+          required
         />
         <p v-if="getLoginError">Wrong email or password!</p>
         <input type="submit" value="Login" />
@@ -59,7 +61,6 @@ export default {
       this.$router.push("/myaccount");
       await this.$store.dispatch("login", this.user);
       location.reload();
-      
     },
 
     logout() {
@@ -157,14 +158,16 @@ form {
     font-size: 13px;
   }
 
-  input[type="text"] {
+  input[type="password"],
+  input[type="email"] {
     margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 4px;
     height: 30px;
   }
 
-  input[type="text"]:focus {
+   input[type="password"]:focus,
+  input[type="email"]:focus {
     background-color: #eeeeee;
   }
 
