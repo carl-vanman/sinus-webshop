@@ -3,10 +3,21 @@
     <section v-if="!edit">
       <h2 class="orders">account details</h2>
       <div class="account-details">
-        <p>{{ userDetails.name }}</p>
-        <p>{{ userDetails.email }}</p>
-        <p>{{ userDetails.address.street }}</p>
-        <p>{{ userDetails.address.zip }} {{ userDetails.address.city }}</p>
+        <p>
+          <span class="account-titles">Name:&nbsp;</span> {{ userDetails.name }}
+        </p>
+        <p>
+          <span class="account-titles">email:&nbsp;</span
+          >{{ userDetails.email }}
+        </p>
+        <p>
+          <span class="account-titles">street:&nbsp;</span
+          >{{ userDetails.address.street }}
+        </p>
+        <p>
+          <span class="account-titles">zip/city:&nbsp;</span
+          >{{ userDetails.address.zip }} {{ userDetails.address.city }}
+        </p>
         <button @click="edit = !edit">EDIT</button>
         <!-- <p>{{ userDetails }}</p> -->
       </div>
@@ -35,7 +46,7 @@
             <input v-model="userDetails.address.city" type="text" name="city" />
           </div>
 
-          <button @click="editUser">SAVE</button>
+          <button class="save-settings" @click="editUser">SAVE</button>
         </form>
       </div>
     </section>
@@ -105,6 +116,10 @@ li:nth-child(odd) {
   background: lightgrey;
 }
 
+.account-titles {
+  color: lightgrey;
+}
+
 li:hover {
   background-color: slateblue;
   color: #fff;
@@ -160,5 +175,45 @@ form {
   width: 200px;
   display: flex;
   flex-direction: column;
+}
+
+button {
+  background-color: #000;
+  border-radius: 50px;
+  font-weight: normal;
+  color: #fff;
+  width: 210px;
+  height: 50px;
+  border: none;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #252525;
+}
+
+input {
+  background-color: lightgrey;
+  border: none;
+  width: 200px;
+  padding: 10px 10px;
+}
+
+label {
+  color: lightgrey;
+  text-transform: uppercase;
+}
+
+.save-settings {
+  background-color: #75bf48;
+}
+
+.save-settings:hover {
+  background-color: #8bda5b;
 }
 </style>
