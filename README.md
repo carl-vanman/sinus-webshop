@@ -52,15 +52,15 @@ Sprint 1,
 
 * Antal dagar till inlämning = 7dagar (+2 helgdagar) 
 
-* Scrum master
+* Scrum master, hålla i sprintplanering och standup. se till att gruppen lyckas bra med det agila arbetet. Dela ut arbetsuppgifter och hjälpa till när någon fastnar.
   - Calle
 
 * Sprintar
   - Sprint 1, 24-26/2
-  - Genomgång Sprint 1 och planering sprint 2. 1/3
+  - Genomgång Sprint 1 och planering sprint 2. 1/3, vi går igenom om vi klarat sprint 1, om något återstår går igenom vad och varför. Vi planerar utifrån vår backlog vår nästa sprint.
   - Sprint 2, 2-4/2
 
-* Stand up
+* Stand up, ett möte där vi varje dag berättar om vad vi förväntas hålla på med under dagen samt hur föregående dag gått och om vi stött på något problem, hur vi ligger till i sprinten. Scum master håller i mötet.
   - 10.00 sharpisch varje dag
 
 
