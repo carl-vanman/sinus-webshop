@@ -2,11 +2,16 @@
 
 # Planering Agile
 
+ * Tack för oss!
+
 * 5/3
   - Standup på morgonen som igår.
-  - fortsatte sen att gå igenom sidan tillsammans i alla lägen som olika användare.
-  kodade lite gemensamt sen individuellt med små fix ville lägga till/ ändra.
-  avsluta med förberedelse imför presentation.
+  - fortsatte sen att gå igenom sidan tillsammans som alla användare, i alla vyer och funktioner.
+  kodade lite gemensamt, sen individuellt med små fix ville lägga till/ ändra.
+  avsluta med förberedelse inför presentation.
+  - Presentation
+  - förberedelse inför inlämning
+  - inlämning
 
 * 4/3
   - standup på morgonen, gick igenom de vi alla jobbat med och om man stött på problem.
@@ -53,13 +58,13 @@ påbörjade planer Sprint 1, utifrån backlogen.
 
 * 23/2 - Planering upplägg av Agiltarbetssätt
 
-Sprint 1,
-  - påbörjad Stories i till backlog
 
 * Antal dagar till inlämning = 7dagar (+2 helgdagar) 
 
 * Scrum master, hålla i sprintplanering och standup. se till att gruppen lyckas bra med det agila arbetet. Dela ut arbetsuppgifter och hjälpa till när någon fastnar.
   - Calle
+
+* backlog, där vi förvara våra user Stories innan det flyttas vidare till todo inför en sprint
 
 * Sprintar
   - Sprint 1, 24-26/2
@@ -69,6 +74,7 @@ Sprint 1,
 * Stand up, ett möte där vi varje dag berättar om vad vi förväntas hålla på med under dagen samt hur föregående dag gått och om vi stött på något problem, hur vi ligger till i sprinten. Scum master håller i mötet.
   - 10.00 sharpisch varje dag
 
+- påbörjad Stories till backlog
 
 
 ## Arbetssätt
