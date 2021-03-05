@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { get } from '@/api/api.js'
-import { post } from '@/api/api.js'
-import { ORDER_URL } from '@/api/api.js'
-import { PRODUCTS_URL } from '@/api/api.js'
-import { REGISTER_USER_URL } from '@/api/api.js'
-import { LOGIN_USER_URL } from '@/api/api.js'
-import { USER_URL } from '@/api/api.js'
-import { setToken } from '@/api/api.js'
-import { patch } from '@/api/api.js'
-import { del } from '@/api/api.js'
-/* import * as API from '@/api' */
-
+import {
+  get,
+  post,
+  setToken,
+  patch,
+  del,
+  ORDER_URL,
+  PRODUCTS_URL,
+  REGISTER_USER_URL,
+  LOGIN_USER_URL,
+  USER_URL
+} from '@/api/api.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    /* calle test loginknapp */
     showLogin: false,
     products: [],
     cart: [],
@@ -62,7 +61,6 @@ export default new Vuex.Store({
     getAdminStatus(state) {
       return state.admin
     },
-    /* calle test login knapp */
     getShowLogin(state) {
       return state.showLogin
     }
@@ -131,7 +129,7 @@ export default new Vuex.Store({
     setAdmin(state) {
       state.admin = true
     },
-    /*  calle testa loginknapp*/
+    
     setShowState(state) {
       state.showLogin = !state.showLogin
     }
@@ -201,7 +199,6 @@ export default new Vuex.Store({
     async registerUser(context, obj) {
       const response = await post(REGISTER_USER_URL, obj)
       console.log(response)
-      console.log(context)
     },
 
     async login(context, obj) {
