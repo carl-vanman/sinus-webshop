@@ -2,6 +2,12 @@
 
 # Planering Agile
 
+* 5/3
+  - Standup på morgonen som igår.
+  - fortsatte sen att gå igenom sidan tillsammans i alla lägen som olika användare.
+  kodade lite gemensamt sen individuellt med små fix ville lägga till/ ändra.
+  avsluta med förberedelse imför presentation.
+
 * 4/3
   - standup på morgonen, gick igenom de vi alla jobbat med och om man stött på problem.
   - delade upp arbetet av Admin delen.
