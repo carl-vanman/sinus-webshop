@@ -4,10 +4,19 @@
 
  * Tack för oss!
 
+* utvärdering,
+  - Mest utmärkande under projektet har varit de goda samarbetet i gruppen. Alla har varit uppmärksamma, tålamodiga och ödmjuka till både fram- och motgångar( inte många;) ) under arbetes gång. Vi har hjälp varandra när det behövts, parkodat ihop och lärt oss av varann.
+  Kommunikationen har varit outstanding!
+  
+  Mycket av den tid vi la i början på planering och struktur gav en bra grund. De i kombination att vi även kunna frångå den när det krävdes, då problem dykte upp eller tid blev knapp.
+  Tycker vi som grupp var snabb på att ta beslut för att hålla deadline och styra varann i rätt kurs.
+
+  Hade inte kunnat bli bättre!
+
 * 5/3
   - Standup på morgonen som igår.
   - fortsatte sen att gå igenom sidan tillsammans som alla användare, i alla vyer och funktioner.
-  kodade lite gemensamt, sen individuellt med små fix ville lägga till/ ändra.
+  kodade lite gemensamt, sen individuellt med små fix vi ville lägga till/ ändra.
   avsluta med förberedelse inför presentation.
   - Presentation
   - förberedelse inför inlämning
@@ -17,7 +26,7 @@
   - standup på morgonen, gick igenom de vi alla jobbat med och om man stött på problem.
   - delade upp arbetet av Admin delen.
   - alla fortsatte jobba vidare individuellt
-  - möte på eftermiddan, stämmer av hur det går för alla och kollar igenom de vi gjort. Fortsätter med individuellt.
+  - möte på eftermiddan, stämmer av hur det går för alla och kollar igenom de vi gjort. Fortsätter individuellt.
 
 * 3/3 
   - standup,
@@ -31,8 +40,6 @@
   - Productmodal färdigställdes, bugtesting av produkt view, cart och utchecknings view. Xtra tid behövdes för att lösa så att rätt antal produkt idn skickades med till severn vi lagd order iom. vår snyggare lösning med att öka amount i vår cart istället för upprepa produkt i listan.
   - Alla jobba enskilt med css
   - slutet av dan gemensam kodning utav post request vid registering och inloggning av användare
-
-
 
 * 1/3
   - Genomgång Sprint 1 och planering sprint 2 flyttas till 2/3,
