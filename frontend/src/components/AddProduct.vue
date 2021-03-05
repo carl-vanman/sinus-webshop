@@ -1,15 +1,24 @@
 <template>
   <div class="add-product">
     <div class="content">
-      <div class="photo">
-        <p>Product Photo</p>
-        <div class="img">
-          <img :src="require(`../assets/${edit.imgFile}`)" alt="..." />
+      <div class="left">
+        <div class="photo">
+          <p>Product Photo</p>
+          <div class="img">
+            <img :src="require(`../assets/${edit.imgFile}`)" alt="..." />
+          </div>
         </div>
+        <label for="id">Photo file</label>
+        <select v-model="edit.imgFile">
+          <option disabled selected value>-- select an option --</option>
+          <option v-for="(file, index) in photoFiles" :key="index">
+            {{ file }}
+          </option>
+        </select>
       </div>
       <div class="form">
         <form>
-          <div class="left">
+          <div class="middle">
             <label for="title">Product title</label>
             <input type="text" name="title" v-model="edit.title" />
 
@@ -19,12 +28,12 @@
             <label for="price">Product price</label>
             <input type="text" name="price" v-model="edit.price" />
 
-            <label for="id">Photo file</label>
-            <select v-model="edit.imgFile">
+            <label for="id">Product category</label>
+            <select v-model="edit.category">
               <option disabled selected value>-- select an option --</option>
-              <option v-for="(file, index) in photoFiles" :key="index">
-                {{ file }}
-              </option>
+              <option>board</option>
+              <option>wheels</option>
+              <option>clothes</option>
             </select>
           </div>
           <div class="right">
@@ -59,6 +68,7 @@ export default {
         longDesc: "",
         imgFile: "add-img.svg",
         _id: "",
+        category: "",
       },
 
       photoFiles: [
@@ -96,7 +106,6 @@ export default {
         location.reload();
       }
     },
-
   },
 
   watch: {
@@ -135,11 +144,12 @@ p {
 
 .img {
   width: 300px;
-  height: 280px;
+  height: 212px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5px;
 
   img {
     width: 50%;
@@ -180,7 +190,15 @@ select {
   width: 326px;
   height: 44px;
 }
+
 .left {
+  display: flex;
+  flex-direction: column;
+  select {
+    width: 302px;
+  }
+}
+.middle {
   height: 100%;
   display: flex;
   flex-direction: column;
